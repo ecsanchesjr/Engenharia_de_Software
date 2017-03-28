@@ -9,18 +9,15 @@ package sistemaescolar.FXML;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
-
-/**
- *
- * @author ecsan
- */
 public class RootLayoutController implements Initializable {
     
     @FXML
@@ -29,13 +26,25 @@ public class RootLayoutController implements Initializable {
     private TextField Login;
     @FXML
     private PasswordField Password;
+    @FXML
+    private MenuItem Close;
+    @FXML
+    private Text Mensagem;
+    @FXML
+    private Button BtnLogin;
+    
 
+    @FXML
+    public void Sair(){
+        System.exit(0);
+    }
     
-    
+    @FXML
+    public void Login(){
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
 }

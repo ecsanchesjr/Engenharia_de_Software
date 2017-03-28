@@ -8,7 +8,7 @@
 }
 
 .block{
-   -fx-background-color: #696A76;
+   -fx-background-color: #357cbe;
    /*-fx-background-color: #DEDDDD;*/
 }
 
@@ -18,7 +18,8 @@
 }
 
 .font-title{
-	-fx-font-size: 50px;
+    -fx-font-size: 50px;
+    -fx-font-style: oblique;
 }
 
 .rich-blue {

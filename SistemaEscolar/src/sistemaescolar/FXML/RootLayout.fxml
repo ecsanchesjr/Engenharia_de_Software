@@ -6,16 +6,22 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="block" stylesheets="@Stylesheets/Common.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="block" stylesheets="@Stylesheets/Common.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaescolar.FXML.RootLayoutController">
    <children>
+      <Label alignment="CENTER" layoutX="246.0" layoutY="137.0" prefHeight="64.0" prefWidth="519.0" stylesheets="@Stylesheets/Common.css" text="TELA DE LOGIN" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <styleClass>
+            <String fx:value="font" />
+            <String fx:value="font-title" />
+         </styleClass></Label>
       <MenuBar layoutX="209.0" layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="Sair" mnemonicParsing="false" onAction="#Sair" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -30,16 +36,15 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label alignment="CENTER" layoutX="246.0" layoutY="138.0" prefHeight="64.0" prefWidth="519.0" stylesheets="@Stylesheets/Common.css" text="TELA DE LOGIN" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
-         <styleClass>
-            <String fx:value="font" />
-            <String fx:value="font-title" />
-         </styleClass></Label>
-      <TextField fx:id="Login" layoutX="419.0" layoutY="233.0" promptText="Usuário" />
-      <TextField fx:id="Password" layoutX="419.0" layoutY="283.0" promptText="Senha" />
-      <Button layoutX="373.0" layoutY="343.0" mnemonicParsing="false" styleClass="rich-blue" text="Entrar" />
-      <Button layoutX="536.0" layoutY="343.0" mnemonicParsing="false" styleClass="rich-blue" text="Cadastrar" />
-      <Label layoutX="348.0" layoutY="228.0" prefHeight="39.0" prefWidth="62.0" styleClass="font" text="Usuário" />
-      <Label layoutX="353.0" layoutY="278.0" prefHeight="39.0" prefWidth="51.0" styleClass="font" text="Senha" />
+      <TextField fx:id="Login" focusTraversable="false" layoutX="447.0" layoutY="233.0" promptText="Usuário" />
+      <PasswordField fx:id="Password" focusTraversable="false" layoutX="447.0" layoutY="283.0" promptText="Senha" />
+      <AnchorPane layoutX="416.0" layoutY="349.0">
+         <children>
+            <Button fx:id="BtnLogin" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="189.0" styleClass="rich-blue" text="Entrar" />
+            <Button layoutX="3.0" layoutY="79.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="189.0" styleClass="rich-blue" text="Cadastrar" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="388.0" layoutY="228.0" prefHeight="39.0" prefWidth="62.0" styleClass="font" text="Usuário" />
+      <Label layoutX="394.0" layoutY="278.0" prefHeight="39.0" prefWidth="51.0" styleClass="font" text="Senha" />
    </children>
 </AnchorPane>
