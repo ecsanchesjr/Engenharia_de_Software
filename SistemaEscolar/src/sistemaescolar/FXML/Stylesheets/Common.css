@@ -9,11 +9,11 @@
 
 .block{
    -fx-background-color: #357cbe;
-   /*-fx-background-color: #DEDDDD;*/
+   -fx-background-color: #DEDDDD;
 }
 
 .font{
-	/*-fx-font-style: Bold;*/
+	-fx-font-style: Bold;
    -fx-text-fill: #FFFFFF;
 }
 

@@ -8,13 +8,23 @@ package sistemaescolar;
 import java.sql.*;
 
 public class ConexaoBD {
-    private Connection conexao;
+    private static Connection conexao=null;
 
-    public ConexaoBD() {
-        this.conexao = null;
+    public ConexaoBD() {}
+    
+    public static Connection getCon() throws SQLException{
+        if(conexao != null){
+            try{
+                conexao.close();
+            }catch(SQLException e){
+                //NOTHING TO DO HERE
+            }
+        }
+        startCon();
+        return(conexao);
     }
     
-    public Connection startCon(){
+    public static Connection startCon(){
         try{
             String url = "jdbc:postgresql://localhost:5432/Escola_BD";
             String user = "postgres";
@@ -25,11 +35,28 @@ public class ConexaoBD {
             conexao = DriverManager.getConnection(url, user, password);
         }catch(ClassNotFoundException | SQLException e){
             // NOTHING TO DO HERE
-            System.out.println("EOQ");
         }
         
         return(conexao);
     }
+    
+    private static void rollBackBD(String Login)throws SQLException{
+        Statement s = conexao.createStatement();
+        
+        s.executeUpdate("DELETE FROM Pessoa WHERE pessoa_usuario='"+Login+"'");
+        s.executeUpdate("REVOKE ALL PRIVILEGES ON DATABASE FROM "+Login);
+        
+        s.close();
+    }
+
+    private static void createUser(String Login, String Password) throws SQLException{
+        Statement s = conexao.createStatement();
+        
+        s.executeUpdate("CREATE USER "+Login+"WITH PASSWORD '"+Password+"'");
+        s.executeUpdate("CREATE VIEW "+Login+"verDados AS SELECT * FROM PESSOA WHERE pessoa_usuario='"+Login+"'");
+        s.close();
+    }
+    
     
     
 }
