@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="block" stylesheets="@Stylesheets/Common.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaescolar.FXML.RootLayoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="block" stylesheets="@Stylesheets/Common.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaescolar.FXML.LoginFXMLController">
    <children>
       <Label alignment="CENTER" layoutX="246.0" layoutY="137.0" prefHeight="64.0" prefWidth="519.0" stylesheets="@Stylesheets/Common.css" text="TELA DE LOGIN" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
          <styleClass>
@@ -36,11 +36,12 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Label layoutX="388.0" layoutY="228.0" prefHeight="39.0" prefWidth="62.0" styleClass="font" text="Usuário" />
       <TextField fx:id="Login" focusTraversable="false" layoutX="447.0" layoutY="233.0" promptText="Usuário" />
       <PasswordField fx:id="Password" focusTraversable="false" layoutX="447.0" layoutY="283.0" promptText="Senha" />
-      <Button fx:id="BtnLogin" layoutX="430.0" layoutY="388.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="189.0" styleClass="rich-blue" text="Entrar" />
-      <Label layoutX="388.0" layoutY="228.0" prefHeight="39.0" prefWidth="62.0" styleClass="font" text="Usuário" />
       <Label layoutX="394.0" layoutY="278.0" prefHeight="39.0" prefWidth="51.0" styleClass="font" text="Senha" />
+      <Button fx:id="BtnLogin" layoutX="430.0" layoutY="388.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="189.0" styleClass="rich-blue" text="Entrar" />
       <Label fx:id="labelMsg" contentDisplay="CENTER" layoutX="423.0" layoutY="317.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" prefWidth="202.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Button fx:id="BtnRegister" layoutX="430.0" layoutY="472.0" mnemonicParsing="false" onAction="#getRegister" prefHeight="39.0" prefWidth="189.0" styleClass="rich-blue" text="Button" />
    </children>
 </AnchorPane>

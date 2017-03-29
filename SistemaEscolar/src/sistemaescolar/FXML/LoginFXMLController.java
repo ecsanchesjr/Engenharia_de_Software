@@ -20,7 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sistemaescolar.Valida;
 
-public class RootLayoutController implements Initializable {
+public class LoginFXMLController implements Initializable {
 
     @FXML
     Label label;
@@ -34,6 +34,8 @@ public class RootLayoutController implements Initializable {
     MenuItem Close;
     @FXML
     Button BtnLogin;
+    @FXML
+    Button BtnRegister;
     
 
     @FXML
@@ -59,7 +61,8 @@ public class RootLayoutController implements Initializable {
                 con = conUser.startCon();
                 if(con==null){
                     labelMsg.setText("Senha incorreta ou usuário não cadastrado.");
-                }else{
+                }else{  // ALTERAR ISSO QUANDO FOR MELHORAR O SISTEMA
+                    
                     Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                     dialogoInfo.setTitle("CONEXÃO FEITA COM SUCESSO");
                     dialogoInfo.setHeaderText("Usuário e Senha corretos.");
@@ -78,6 +81,10 @@ public class RootLayoutController implements Initializable {
         }
     }
     
+    @FXML
+    public void getRegister(){
+        sistemaescolar.ControleUI.getInstance().showRegister();
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
