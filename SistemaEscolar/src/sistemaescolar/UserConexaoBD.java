@@ -47,7 +47,7 @@ public class UserConexaoBD {
     
     public Connection startCon(){
         try{
-            String url = "jdbc:postgresql://localhost:5432/trabsoftw";
+            String url = "jdbc:postgresql://localhost:5432/Escola_BD";
 
             Class.forName("org.postgresql.Driver");
          

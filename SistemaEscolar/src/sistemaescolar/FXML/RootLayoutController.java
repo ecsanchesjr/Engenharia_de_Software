@@ -8,40 +8,76 @@ package sistemaescolar.FXML;
 
 
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import sistemaescolar.Valida;
 
 public class RootLayoutController implements Initializable {
-    
+
     @FXML
-    private Label label;
+    Label label;
     @FXML
-    private TextField Login;
+    Label labelMsg;
     @FXML
-    private PasswordField Password;
+    TextField Login;
     @FXML
-    private MenuItem Close;
+    PasswordField Password;
     @FXML
-    private Text Mensagem;
+    MenuItem Close;
     @FXML
-    private Button BtnLogin;
+    Button BtnLogin;
     
 
     @FXML
     public void Sair(){
         System.exit(0);
     }
-    
+  
     @FXML
     public void Login(){
+        Connection con;
+        StringBuilder msg = new StringBuilder("");
+        /*
+            MÉTODO QUE O BOTÃO LOGIN IRÁ CHAMAR APÓS CLICADO
+        */
+        
+        if(Valida.validaLogin(Login.getText(), Password.getText(), msg)) { //Chama o método de teste para verificar se algum campo está vazio
+            try{
+                sistemaescolar.UserConexaoBD conUser = new sistemaescolar.UserConexaoBD();
+
+                conUser.setUsuario(Login.getText().toLowerCase());
+                conUser.setSenha(Password.getText());
+
+                con = conUser.startCon();
+                if(con==null){
+                    labelMsg.setText("Senha incorreta ou usuário não cadastrado.");
+                }else{
+                    Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
+                    dialogoInfo.setTitle("CONEXÃO FEITA COM SUCESSO");
+                    dialogoInfo.setHeaderText("Usuário e Senha corretos.");
+                    dialogoInfo.setContentText("Conectado!");
+                    dialogoInfo.showAndWait();
+                    labelMsg.setText("");
+                    Login.setText("");
+                    Password.setText("");
+                }
+            }catch(Exception e){
+                System.out.println("Erro: "+e);
+            }
+        }else{
+            labelMsg.setText(msg.toString());
+                    
+        }
     }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

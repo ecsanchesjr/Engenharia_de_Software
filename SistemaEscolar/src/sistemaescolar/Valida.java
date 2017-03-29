@@ -5,6 +5,9 @@
  */
 package sistemaescolar;
 
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 /*
     Classe para validação das informações.
 */
@@ -16,11 +19,11 @@ public final class Valida {
         boolean control = true;
         
         if(Login.isEmpty()){
-            msg.append("Campo de usuário vazio.");
+            msg.append("Campo de usuário vazio. ");
             control = false;
         }
         if(Password.isEmpty()){
-            msg.append("Campo de senha vazio.");
+            msg.append("Campo de senha vazio. ");
             control = false;
         }
         
@@ -51,6 +54,7 @@ public final class Valida {
         }
         return(control);
     }
+
     
     
  

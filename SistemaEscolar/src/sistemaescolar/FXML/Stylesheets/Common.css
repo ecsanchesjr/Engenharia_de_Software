@@ -8,13 +8,12 @@
 }
 
 .block{
-   -fx-background-color: #357cbe;
-   -fx-background-color: #DEDDDD;
+   -fx-background-color: #0b457c;
 }
 
 .font{
-	-fx-font-style: Bold;
-   -fx-text-fill: #FFFFFF;
+    -fx-font-style: Bold;
+    -fx-text-fill: #FFFFFF;
 }
 
 .font-title{
@@ -23,8 +22,7 @@
 }
 
 .rich-blue {
-   -fx-background-color:
-   #000000,
+   -fx-background-color:#000000,
    linear-gradient(#7ebcea, #2f4b8f),
    linear-gradient(#426ab7, #263e75),
    linear-gradient(#395cab, #223768);
@@ -57,8 +55,7 @@
 }
 
 .circle-back{
-   -fx-background-color:
-   #000000,
+   -fx-background-color:#000000,
    linear-gradient(#7ebcea, #2f4b8f),
    linear-gradient(#426ab7, #263e75),
    linear-gradient(#395cab, #223768);
