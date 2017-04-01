@@ -37,11 +37,11 @@
         </menus>
       </MenuBar>
       <Label layoutX="388.0" layoutY="228.0" prefHeight="39.0" prefWidth="62.0" styleClass="font" text="Usuário" />
-      <TextField fx:id="Login" focusTraversable="false" layoutX="447.0" layoutY="233.0" promptText="Usuário" />
-      <PasswordField fx:id="Password" focusTraversable="false" layoutX="447.0" layoutY="283.0" promptText="Senha" />
-      <Label layoutX="394.0" layoutY="278.0" prefHeight="39.0" prefWidth="51.0" styleClass="font" text="Senha" />
+      <TextField fx:id="Login" layoutX="447.0" layoutY="233.0" promptText="Usuário" />
+      <PasswordField fx:id="Password" layoutX="447.0" layoutY="283.0" promptText="Senha" />
       <Button fx:id="BtnLogin" layoutX="430.0" layoutY="388.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="189.0" styleClass="rich-blue" text="Entrar" />
-      <Label fx:id="labelMsg" contentDisplay="CENTER" layoutX="423.0" layoutY="317.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" prefWidth="202.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Label layoutX="394.0" layoutY="278.0" prefHeight="39.0" prefWidth="51.0" styleClass="font" text="Senha" />
       <Button fx:id="BtnRegister" layoutX="430.0" layoutY="472.0" mnemonicParsing="false" onAction="#getRegister" prefHeight="39.0" prefWidth="189.0" styleClass="rich-blue" text="Button" />
+      <Label fx:id="labelMsg" contentDisplay="CENTER" layoutX="423.0" layoutY="317.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="64.0" prefWidth="202.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
    </children>
 </AnchorPane>

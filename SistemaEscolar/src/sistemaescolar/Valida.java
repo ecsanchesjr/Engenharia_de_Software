@@ -5,14 +5,18 @@
  */
 package sistemaescolar;
 
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-
 /*
     Classe para validação das informações.
 */
 public final class Valida {
     
+    /**
+     *
+     * @param Login  
+     * @param Password
+     * @param msg
+     * @return
+     */
     public static Boolean validaLogin(String Login, String Password, StringBuilder msg){ //MÉTODO DE VALIDAÇÃO DE PREENCHIMENTO DE CAMPOS
         msg.setLength(0);
         

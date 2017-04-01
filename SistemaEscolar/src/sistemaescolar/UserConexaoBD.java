@@ -40,7 +40,7 @@ public class UserConexaoBD {
     public void closeCon(){
         try{
             conUser.close();
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Erro ao fechar conexão, vei, fodeu o role D:");
         }
     }
@@ -56,5 +56,4 @@ public class UserConexaoBD {
         }
         return(conUser);
     }
-    
 }
