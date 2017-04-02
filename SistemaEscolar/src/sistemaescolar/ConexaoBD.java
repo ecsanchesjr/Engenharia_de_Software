@@ -41,20 +41,17 @@ public class ConexaoBD {
     }
     
     private static void rollBackBD(String Login)throws SQLException{
-        Statement s = conexao.createStatement();
-        
-        s.executeUpdate("DELETE FROM Pessoa WHERE pessoa_usuario='"+Login+"'");
-        s.executeUpdate("REVOKE ALL PRIVILEGES ON DATABASE FROM "+Login);
-        
-        s.close();
+        try (Statement s = conexao.createStatement()) {
+            s.executeUpdate("DELETE FROM Pessoa WHERE pessoa_usuario='"+Login+"'");
+            s.executeUpdate("REVOKE ALL PRIVILEGES ON DATABASE FROM "+Login);
+        }
     }
 
     private static void createUser(String Login, String Password) throws SQLException{
-        Statement s = conexao.createStatement();
-        
-        s.executeUpdate("CREATE USER "+Login+"WITH PASSWORD '"+Password+"'");
-        s.executeUpdate("CREATE VIEW "+Login+"verDados AS SELECT * FROM PESSOA WHERE pessoa_usuario='"+Login+"'");
-        s.close();
+        try (Statement s = conexao.createStatement()) {
+            s.executeUpdate("CREATE USER "+Login+"WITH PASSWORD '"+Password+"'");
+            s.executeUpdate("CREATE VIEW "+Login+"verDados AS SELECT * FROM PESSOA WHERE pessoa_usuario='"+Login+"'");
+        }
     }
     
     
