@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -62,13 +61,7 @@ public class LoginFXMLController implements Initializable {
                 if(con==null){
                     labelMsg.setText("Senha incorreta ou usuário não cadastrado.");
                 }else{  // ALTERAR ISSO QUANDO FOR MELHORAR O SISTEMA
-                    
-                    Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
-                    dialogoInfo.setTitle("CONEXÃO FEITA COM SUCESSO");
-                    dialogoInfo.setHeaderText("Usuário e Senha corretos.");
-                    dialogoInfo.setContentText("Conectado!");
-                    dialogoInfo.showAndWait();
-                    labelMsg.setText("");
+                    labelMsg.setText("USUÁRIO CONECTADO!");
                     Login.setText("");
                     Password.setText("");
                 }
