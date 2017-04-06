@@ -5,7 +5,7 @@
  */
 package sistemaescolar;
 
-import static sistemaescolar.Constantes_Tipos.TIPO_FUNCIONARIO;
+import static sistemaescolar.Constantes_Tipos.*;
 import static sistemaescolar.ValidaRegex.validaCpfNum;
 import static sistemaescolar.ValidaRegex.validaLetras;
 
@@ -31,7 +31,7 @@ public final class Valida {
     public static Boolean validaNome(String nome, StringBuilder msg){
        // msg.setLength(0);
         
-        if(validaLetras(nome, msg)){
+        if(!validaLetras(nome, msg)){
             return(false);
         }else if(nome.isEmpty()){
             msg.append("Nome vazio. ");
@@ -108,14 +108,12 @@ public final class Valida {
         }
     }
     
-    public static Boolean validaCadastroV(String nome, String cpf, String rg, int idade, int tipo, StringBuilder msg){
-        msg.setLength(0);
-        
+    public static Boolean validaCadastroV(String nome, String cpf, String rg, int idade, int tipo, StringBuilder msg){       
         boolean nomeV = validaNome(nome, msg);
         boolean cpfV = validaCpf(cpf, msg);
         boolean rgV = validaRg(rg, msg);
         boolean idadeV = validaIdade(idade, msg);
-        boolean tipoV = (tipo == TIPO_FUNCIONARIO);
+        boolean tipoV = (tipo == TIPO_VISITANTE);
         
         return(nomeV && cpfV && rgV && idadeV && tipoV);  
     } 

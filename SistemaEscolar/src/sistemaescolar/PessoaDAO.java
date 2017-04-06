@@ -15,22 +15,22 @@ import static sistemaescolar.Constantes_Tipos.*;
  * @author ecsan
  */
 public class PessoaDAO {
-    private final Connection con;
+    private final ConexaoBD con;
     
     public PessoaDAO() throws SQLException{
-        con = ConexaoBD.getCon();
+        con = (ConexaoBD) ConexaoBD.getCon();
     }
     
     public static void insertPessoaV(String nome, String cpf, String rg, int idade) throws SQLException{
         Pessoa p = new Pessoa(nome, cpf, rg, idade);
-        
-        try (Connection con = ConexaoBD.getCon()) {
+        try{
+            Connection con = ConexaoBD.getCon();
             Statement s = con.createStatement();
-            
-            s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade) VALUES("+TIPO_VISITANTE+",'"+p.getNome()+"','"+p.getCpf()+"','"+p.getRg()+"',"+p.getIdade()+");");
+         
+            s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade) VALUES(' " +TIPO_VISITANTE+ " ',' " +p.getNome()+ " ',' " +p.getCpf()+ " ',' " +p.getRg()+ " ',' " +p.getIdade()+ " ')");
             con.close();
-        }catch(Exception e){
-            System.out.println("erro");
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
         }
     }
 }

@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public class ValidaRegex {
     
-    public static Boolean validaLetras(String letras, StringBuilder msg){;
+    public static Boolean validaLetras(String letras, StringBuilder msg){
         
         String pattern = "[a-zA-Z][a-zA-ZÁÂÃÀÇÉÊÍÓÔÕÚÜáâãàçéêíóôõúü ']*$";
         Pattern test = Pattern.compile(pattern);

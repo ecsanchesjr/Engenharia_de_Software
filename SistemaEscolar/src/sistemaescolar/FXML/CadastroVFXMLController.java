@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import static sistemaescolar.Constantes_Tipos.*;
 import static sistemaescolar.PessoaDAO.insertPessoaV;
 import static sistemaescolar.Valida.validaCadastroV;
-import static sistemaescolar.ValidaRegex.validaNumeros;
 
 /**
  * FXML Controller class
@@ -64,6 +63,8 @@ public class CadastroVFXMLController implements Initializable {
         }
         }catch(NumberFormatException e){
             errorLabel.setText("Idade Inválida");
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 }
