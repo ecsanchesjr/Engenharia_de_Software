@@ -5,41 +5,69 @@
  */
 package sistemaescolar;
 
-import static org.testng.Assert.*;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  *
- * @author ecsan
+ * @author Ana Flavia
  */
 public class ValidaNGTest {
     
     public ValidaNGTest() {
     }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @BeforeMethod
-    public void setUpMethod() throws Exception {
-    }
-
-    @AfterMethod
-    public void tearDownMethod() throws Exception {
-    }
-
-    @Test
+    
+    @org.junit.Test
     public void validaLoginTest(){
         StringBuilder msg = new StringBuilder("");
         assertTrue(Valida.validaLogin("Elss", "132333",msg));
     }
+    
+    @org.junit.Test
+    public void validaLoginTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertTrue(Valida.validaLogin("Joao152", "utf1524",msg));
+    }
+    
+    @org.junit.Test
+    public void validaLoginTest3(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaLogin("", "utf1524",msg));
+    }
+    
+    @org.junit.Test
+    public void validaLoginTest4(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaLogin("Ana", "",msg));
+    }    
+    
+    @org.junit.Test
+    public void validaPasswordTest(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaPassword("Ana", "152",msg));
+    }    
+    
+    @org.junit.Test
+    public void validaPasswordTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaPassword("", "152",msg));
+    }    
+    
+    @org.junit.Test
+    public void validaPasswordTest3(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaPassword("Ana", "85152",msg));
+    }    
+    
+    @org.junit.Test
+    public void validaPasswordTest4(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaPassword("Ana", "",msg));
+    }    
+    
+    @org.junit.Test
+    public void validaPasswordTest5(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaPassword("Ana", "851525584512566856258",msg));
+    }    
 }
