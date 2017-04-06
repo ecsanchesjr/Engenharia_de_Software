@@ -19,11 +19,11 @@ public class ControleUI extends Application {
     
     //PARENTS PARA MANIPULAÇÃO DO FXML
     private static Parent loginFXML; 
-    private static Parent registerFXML;
+    private static Parent registerVFXML;
    
     //SCENES
     private static Scene loginScene;
-    private static Scene registerScene;
+    private static Scene registerVScene;
     
     
     private static ControleUI INSTANCE = null;
@@ -45,9 +45,9 @@ public class ControleUI extends Application {
        
         try{
             loginFXML = FXMLLoader.load(getClass().getResource("FXML/LoginFXML.fxml"));
-            registerFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroFXML.fxml"));
+            registerVFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroVFXML.fxml"));
             
-            registerScene = new Scene(registerFXML);
+            registerVScene = new Scene(registerVFXML);
             loginScene = new Scene(loginFXML); 
         }catch(IOException e){
             System.out.println("Erro"+e);
@@ -60,8 +60,8 @@ public class ControleUI extends Application {
         mainStage.show();
     }
     
-    public void showRegister(){
-        secondStage.setScene(registerScene);
+    public void showRegisterV(){
+        secondStage.setScene(registerVScene);
         secondStage.show();
     }
     

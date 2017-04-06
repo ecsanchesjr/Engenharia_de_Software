@@ -53,7 +53,5 @@ public class ConexaoBD {
             s.executeUpdate("CREATE VIEW "+Login+"verDados AS SELECT * FROM PESSOA WHERE pessoa_usuario='"+Login+"'");
         }
     }
-    
-    
-    
+   
 }

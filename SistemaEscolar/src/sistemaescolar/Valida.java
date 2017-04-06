@@ -5,18 +5,12 @@
  */
 package sistemaescolar;
 
-/*
-    Classe para validação das informações.
-*/
+import static sistemaescolar.Constantes_Tipos.TIPO_FUNCIONARIO;
+import static sistemaescolar.ValidaRegex.validaCpfNum;
+import static sistemaescolar.ValidaRegex.validaLetras;
+
 public final class Valida {
-    
-    /**
-     *
-     * @param Login  
-     * @param Password
-     * @param msg
-     * @return
-     */
+       
     public static Boolean validaLogin(String Login, String Password, StringBuilder msg){ //MÉTODO DE VALIDAÇÃO DE PREENCHIMENTO DE CAMPOS
         msg.setLength(0);
         
@@ -34,7 +28,23 @@ public final class Valida {
         return(control);     
     }
     
-    public static Boolean ValidaPassword(String Login, String Password, StringBuilder msg){
+    public static Boolean validaNome(String nome, StringBuilder msg){
+        msg.setLength(0);
+        
+        if(validaLetras(nome, msg)){
+            return(false);
+        }else if(nome.isEmpty()){
+            msg.append("Nome vazio. ");
+            return(false);
+        }else if(nome.length() > 100){
+            msg.append("Nome muito grande. ");
+            return(false);
+        }else{
+            return(true);
+        }
+    }
+    
+    public static Boolean validaPassword(String Login, String Password, StringBuilder msg){
         msg.setLength(0);
         
         boolean control = true;
@@ -58,8 +68,55 @@ public final class Valida {
         }
         return(control);
     }
-
     
+    public static Boolean validaCpf(String cpf, StringBuilder msg){
+        msg.setLength(0);
+        
+        if(cpf.isEmpty()){
+            msg.append("Campo de CPF vazio.");
+            return(false);
+        }else if(!validaCpfNum(cpf, msg)){
+            return(false);
+        }else{
+            return(true);
+        }
+    }
     
- 
+    public static Boolean validaRg(String rg, StringBuilder msg){
+        msg.setLength(0);
+        if(rg.isEmpty()){
+            msg.append("Campo de RG vazio.");
+            return(false);
+        }else{
+            return(true);
+        }
+    }
+    
+    public static Boolean validaIdade(int idade, StringBuilder msg){
+        msg.setLength(0);
+        
+        if(idade > 0){
+            if(idade < 100){
+                return(true);
+            }else{
+                msg.append("Idade inválida(acima de 100 anos).");
+                return(false);
+            }
+        }else{
+            msg.append("Idade inválida(negativa).");
+            return(false);
+        }
+    }
+    
+    public static Boolean validaCadastroV(String nome, String cpf, String rg, int idade, int tipo, StringBuilder msg){
+        msg.setLength(0);
+        
+        boolean nomeV = validaNome(nome, msg);
+        boolean cpfV = validaCpf(cpf, msg);
+        boolean rgV = validaRg(rg, msg);
+        boolean idadeV = validaIdade(idade, msg);
+        boolean tipoV = (tipo == TIPO_FUNCIONARIO);
+        
+        return(nomeV && cpfV && rgV && idadeV && tipoV);  
+    } 
 }

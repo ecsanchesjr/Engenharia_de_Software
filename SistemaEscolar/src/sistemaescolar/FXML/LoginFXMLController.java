@@ -36,12 +36,6 @@ public class LoginFXMLController implements Initializable {
     @FXML
     Button BtnRegister;
     
-
-    @FXML
-    public void Sair(){
-        System.exit(0);
-    }
-  
     @FXML
     public void Login(){
         Connection con;
@@ -75,10 +69,10 @@ public class LoginFXMLController implements Initializable {
     }
     
     @FXML
-    public void getRegister(){
-        sistemaescolar.ControleUI.getInstance().showRegister();
+    public void getCadV(){
+        sistemaescolar.ControleUI.getInstance().showRegisterV();
     }
-    
+        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    

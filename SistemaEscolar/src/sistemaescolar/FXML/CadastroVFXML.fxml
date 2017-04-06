@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="455.0" prefWidth="850.0" styleClass="block" stylesheets="@Stylesheets/Common.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaescolar.FXML.CadastroVFXMLController">
+   <children>
+      <AnchorPane layoutX="147.0" layoutY="111.0" prefHeight="256.0" prefWidth="556.0">
+         <children>
+            <TextField fx:id="textNome" prefHeight="29.0" prefWidth="551.0" promptText="Informe o nome" />
+            <TextField fx:id="textCpf" layoutY="45.0" prefHeight="29.0" prefWidth="551.0" promptText="Informe o CPF com pontos e hífen" />
+            <TextField fx:id="textRg" layoutY="92.0" prefHeight="29.0" prefWidth="551.0" promptText="Informe o RG com pontos e hífen" />
+            <TextField fx:id="textIdade" layoutY="137.0" prefHeight="29.0" prefWidth="551.0" promptText="Informe a idade (até 100 anos)" />
+            <Label fx:id="errorLabel" alignment="TOP_CENTER" layoutX="216.0" layoutY="195.0" prefHeight="88.0" prefWidth="556.0" styleClass="font" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="TituloCadVisitante" alignment="CENTER" layoutX="123.0" layoutY="30.0" prefHeight="60.0" prefWidth="599.0" text="CADASTRAR VISITANTE">
+         <styleClass>
+            <String fx:value="font" />
+            <String fx:value="font-title" />
+         </styleClass>
+      </Label>
+      <Label layoutX="99.0" layoutY="111.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="Nome" />
+      <Label layoutX="99.0" layoutY="157.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="CPF" />
+      <Label layoutX="99.0" layoutY="203.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="RG" />
+      <Label layoutX="99.0" layoutY="248.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="Idade" />
+      <Button fx:id="cadBtn" layoutX="508.0" layoutY="374.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" />
+      <Button fx:id="fecharBtn" layoutX="147.0" layoutY="374.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Fechar" />
+   </children>
+</AnchorPane>
