@@ -15,8 +15,14 @@ public class Pessoa {
     private String email;
     private String rg;
     private int idade;
-    private int regescola;
 
+    Pessoa(String nome, String cpf, String rg, int idade) {
+        setNome(nome);
+        setCpf(cpf);
+        setRg(rg);
+        setIdade(idade);
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -55,13 +61,5 @@ public class Pessoa {
 
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    public int getRegescola() {
-        return regescola;
-    }
-
-    public void setRegescola(int regescola) {
-        this.regescola = regescola;
     }
 }

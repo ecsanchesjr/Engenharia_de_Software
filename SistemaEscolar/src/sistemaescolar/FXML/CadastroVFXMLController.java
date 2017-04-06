@@ -6,6 +6,7 @@
 package sistemaescolar.FXML;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static sistemaescolar.Constantes_Tipos.*;
+import static sistemaescolar.PessoaDAO.insertPessoaV;
 import static sistemaescolar.Valida.validaCadastroV;
 import static sistemaescolar.ValidaRegex.validaNumeros;
 
@@ -50,19 +52,18 @@ public class CadastroVFXMLController implements Initializable {
        stage.close();
     }
     
-    public void Cadastro(){
+    public void Cadastro() throws SQLException{
         int idade;
         StringBuilder msg = new StringBuilder("");
-        if(validaNumeros(textIdade.getText(),msg)){
+        try{
             idade = Integer.parseInt(textIdade.getText());
             if(validaCadastroV(textNome.getText(), textCpf.getText(), textRg.getText(), idade, TIPO_VISITANTE, msg)){
-                
-            }
-        
-        }else{
-            errorLabel.setText("Campo de idade inválido.");
+                insertPessoaV(textNome.getText(), textCpf.getText(), textRg.getText(), idade);
+            }else{
+                errorLabel.setText(msg.toString());
+        }
+        }catch(NumberFormatException e){
+            errorLabel.setText("Idade Inválida");
         }
     }
-
-    
 }

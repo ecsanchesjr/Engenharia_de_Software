@@ -12,7 +12,7 @@ import static sistemaescolar.ValidaRegex.validaLetras;
 public final class Valida {
        
     public static Boolean validaLogin(String Login, String Password, StringBuilder msg){ //MÉTODO DE VALIDAÇÃO DE PREENCHIMENTO DE CAMPOS
-        msg.setLength(0);
+       // msg.setLength(0);
         
         boolean control = true;
         
@@ -29,7 +29,7 @@ public final class Valida {
     }
     
     public static Boolean validaNome(String nome, StringBuilder msg){
-        msg.setLength(0);
+       // msg.setLength(0);
         
         if(validaLetras(nome, msg)){
             return(false);
@@ -45,7 +45,7 @@ public final class Valida {
     }
     
     public static Boolean validaPassword(String Login, String Password, StringBuilder msg){
-        msg.setLength(0);
+       // msg.setLength(0);
         
         boolean control = true;
         
@@ -70,7 +70,7 @@ public final class Valida {
     }
     
     public static Boolean validaCpf(String cpf, StringBuilder msg){
-        msg.setLength(0);
+       // msg.setLength(0);
         
         if(cpf.isEmpty()){
             msg.append("Campo de CPF vazio.");
@@ -83,7 +83,7 @@ public final class Valida {
     }
     
     public static Boolean validaRg(String rg, StringBuilder msg){
-        msg.setLength(0);
+        //msg.setLength(0);
         if(rg.isEmpty()){
             msg.append("Campo de RG vazio.");
             return(false);
@@ -93,7 +93,7 @@ public final class Valida {
     }
     
     public static Boolean validaIdade(int idade, StringBuilder msg){
-        msg.setLength(0);
+       // msg.setLength(0);
         
         if(idade > 0){
             if(idade < 100){

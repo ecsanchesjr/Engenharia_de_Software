@@ -14,7 +14,7 @@
             <TextField fx:id="textCpf" layoutY="45.0" prefHeight="29.0" prefWidth="551.0" promptText="Informe o CPF com pontos e hífen" />
             <TextField fx:id="textRg" layoutY="92.0" prefHeight="29.0" prefWidth="551.0" promptText="Informe o RG com pontos e hífen" />
             <TextField fx:id="textIdade" layoutY="137.0" prefHeight="29.0" prefWidth="551.0" promptText="Informe a idade (até 100 anos)" />
-            <Label fx:id="errorLabel" alignment="TOP_CENTER" layoutX="216.0" layoutY="195.0" prefHeight="88.0" prefWidth="556.0" styleClass="font" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Label fx:id="errorLabel" alignment="TOP_CENTER" layoutX="216.0" layoutY="195.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="88.0" prefWidth="556.0" styleClass="font" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
          </children>
       </AnchorPane>
       <Label fx:id="TituloCadVisitante" alignment="CENTER" layoutX="123.0" layoutY="30.0" prefHeight="60.0" prefWidth="599.0" text="CADASTRAR VISITANTE">
@@ -27,7 +27,7 @@
       <Label layoutX="99.0" layoutY="157.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="CPF" />
       <Label layoutX="99.0" layoutY="203.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="RG" />
       <Label layoutX="99.0" layoutY="248.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="Idade" />
-      <Button fx:id="cadBtn" layoutX="508.0" layoutY="374.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" />
+      <Button fx:id="cadBtn" layoutX="508.0" layoutY="374.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" />
       <Button fx:id="fecharBtn" layoutX="147.0" layoutY="374.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Fechar" />
    </children>
 </AnchorPane>

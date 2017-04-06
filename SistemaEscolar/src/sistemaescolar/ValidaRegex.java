@@ -12,8 +12,7 @@ import java.util.regex.Pattern;
 
 public class ValidaRegex {
     
-    public static Boolean validaLetras(String letras, StringBuilder msg){
-        msg.setLength(0);
+    public static Boolean validaLetras(String letras, StringBuilder msg){;
         
         String pattern = "[a-zA-Z][a-zA-ZÁÂÃÀÇÉÊÍÓÔÕÚÜáâãàçéêíóôõúü ']*$";
         Pattern test = Pattern.compile(pattern);
@@ -28,7 +27,6 @@ public class ValidaRegex {
     }
     
     public static Boolean validaCpfNum(String numeros, StringBuilder msg){
-        msg.setLength(0);
         
         String pattern = "[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$";
         Pattern test = Pattern.compile(pattern);
@@ -43,7 +41,6 @@ public class ValidaRegex {
     }
     
     public static Boolean validaNumeros(String n, StringBuilder msg){
-        msg.setLength(0);
         
         String pattern = "[0-9][0-9]";
         Pattern test = Pattern.compile(pattern);
