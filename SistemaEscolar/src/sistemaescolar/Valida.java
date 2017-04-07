@@ -98,10 +98,10 @@ public final class Valida {
        // msg.setLength(0);
         
         if(idade > 0){
-            if(idade < 100){
+            if(idade < 200){
                 return(true);
             }else{
-                msg.append("Idade inválida(acima de 100 anos).");
+                msg.append("Idade inválida(acima de 200 anos).");
                 return(false);
             }
         }else{

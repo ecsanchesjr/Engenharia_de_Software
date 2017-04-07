@@ -143,7 +143,7 @@ public class ValidaNGTest {
     @Test
     public void validaIdadeTest3(){
         StringBuilder msg = new StringBuilder("");
-        assertFalse(Valida.validaIdade(100, msg));
+        assertFalse(Valida.validaIdade(200, msg));
     } 
     
     @Test
@@ -151,4 +151,40 @@ public class ValidaNGTest {
         StringBuilder msg = new StringBuilder("");
         assertTrue(Valida.validaCadastroV("Maria","152.653.253-52", "12.658.659-9", 52, 5, msg));
     } 
+    
+    @Test
+    public void validaCadastroTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCadastroV("Dunha João da Silva","152.653.253-52", "12.658.659-9", 60, 3, msg));
+    }
+    
+    @Test
+    public void validaCadastroTest3(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCadastroV("Dunha3","152.653.253-52", "12.658.659-9", 60, 5, msg));
+    }
+    
+    @Test
+    public void validaCadastroTest4(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCadastroV("Dunha","Batata", "12.658.659-9", 60, 5, msg));
+    }
+    
+    @Test
+    public void validaCadastroTest5(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCadastroV("Dunha","152.653.253-52", "12.658.659-9", 201, 5, msg));
+    }
+    
+    @Test
+    public void validaCadastroTest6(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCadastroV("Dunha","152.653.253-52", "12.658.659-9", -1, 5, msg));
+    }
+    
+    @Test
+    public void validaCadastroTest7(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCadastroV("Dunha","152.653.253-52", "", -1, 5, msg));
+    }
 }
