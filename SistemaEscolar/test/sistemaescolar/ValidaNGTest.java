@@ -15,6 +15,8 @@ import org.testng.annotations.Test;
  */
 public class ValidaNGTest {
     
+    Valida valida = new Valida();
+    
     public ValidaNGTest() {
     }
     
@@ -70,5 +72,83 @@ public class ValidaNGTest {
     public void validaPasswordTest5(){
         StringBuilder msg = new StringBuilder("");
         assertFalse(Valida.validaPassword("Ana", "851525584512566856258",msg));
-    }    
+    } 
+   
+    @Test
+    public void validaNomeTest(){
+        StringBuilder msg = new StringBuilder("");
+        assertTrue(Valida.validaNome("Joao",msg));
+    } 
+    
+    @Test
+    public void validaNomeTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaNome("J0ao",msg));
+    } 
+    
+    @Test
+    public void validaNomeTest3(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaNome("",msg));
+    } 
+    
+    @Test
+    public void validaNomeTest4(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaNome("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",msg));
+    } 
+    
+    @Test
+    public void validaCPFTest(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCpf("",msg));
+    } 
+    
+    @Test
+    public void validaCPFTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaCpf("78549685624",msg));
+    } 
+    
+    @Test
+    public void validaCPFTest3(){
+        StringBuilder msg = new StringBuilder("");
+        assertTrue(Valida.validaCpf("123.456.789-01",msg));
+    } 
+    
+    @Test
+    public void validaRGTest(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaRg("", msg));
+    } 
+    
+    @Test
+    public void validaRGTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertTrue(Valida.validaRg("12.123.123-9", msg));
+    } 
+    
+    @Test
+    public void validaIdadeTest(){
+        StringBuilder msg = new StringBuilder("");
+        assertTrue(Valida.validaIdade(12, msg));
+    } 
+    
+    @Test
+    public void validaIdadeTest2(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaIdade(0, msg));
+    } 
+    
+    @Test
+    public void validaIdadeTest3(){
+        StringBuilder msg = new StringBuilder("");
+        assertFalse(Valida.validaIdade(100, msg));
+    } 
+    
+    @Test
+    public void validaCadastroTest(){
+        StringBuilder msg = new StringBuilder("");
+        assertTrue(Valida.validaCadastroV("Maria","152.653.253-52", "12.658.659-9", 52, 5, msg));
+    } 
 }
