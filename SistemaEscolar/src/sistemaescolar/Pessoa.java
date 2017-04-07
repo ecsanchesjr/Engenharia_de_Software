@@ -12,7 +12,7 @@ package sistemaescolar;
 public class Pessoa {
     private String nome;
     private String cpf;
-    private String email;
+    //private String email;
     private String rg;
     private int idade;
 
@@ -38,7 +38,7 @@ public class Pessoa {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
+/*
     public String getEmail() {
         return email;
     }
@@ -46,7 +46,7 @@ public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
-
+*/
     public String getRg() {
         return rg;
     }

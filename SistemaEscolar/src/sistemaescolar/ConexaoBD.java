@@ -10,7 +10,7 @@ import java.sql.*;
 public class ConexaoBD {
     private static Connection conexao=null;
 
-    public ConexaoBD() {}
+    //public ConexaoBD() {}
     
     public static Connection getCon() throws SQLException{
         if(conexao != null){
@@ -39,7 +39,7 @@ public class ConexaoBD {
         
         return(conexao);
     }
-    
+/*   
     private static void rollBackBD(String Login)throws SQLException{
         try (Statement s = conexao.createStatement()) {
             s.executeUpdate("DELETE FROM Pessoa WHERE pessoa_usuario='"+Login+"'");
@@ -53,5 +53,5 @@ public class ConexaoBD {
             s.executeUpdate("CREATE VIEW "+Login+"verDados AS SELECT * FROM PESSOA WHERE pessoa_usuario='"+Login+"'");
         }
     }
-   
+*/  
 }

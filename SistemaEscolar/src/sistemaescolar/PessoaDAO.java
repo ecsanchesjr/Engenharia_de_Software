@@ -15,11 +15,6 @@ import static sistemaescolar.Constantes_Tipos.*;
  * @author ecsan
  */
 public class PessoaDAO {
-    private final ConexaoBD con;
-    
-    public PessoaDAO() throws SQLException{
-        con = (ConexaoBD) ConexaoBD.getCon();
-    }
     
     public static void insertPessoaV(String nome, String cpf, String rg, int idade) throws SQLException{
         Pessoa p = new Pessoa(nome, cpf, rg, idade);
@@ -30,7 +25,7 @@ public class PessoaDAO {
             s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade) VALUES(' " +TIPO_VISITANTE+ " ',' " +p.getNome()+ " ',' " +p.getCpf()+ " ',' " +p.getRg()+ " ',' " +p.getIdade()+ " ')");
             con.close();
         }catch(SQLException e){
-            System.out.println(e.getMessage());
+            System.out.println("Erro na conexão com o banco.");
         }
     }
 }
