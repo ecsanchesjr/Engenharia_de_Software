@@ -18,7 +18,7 @@ public class ValidaRegex {
         Matcher matcher = test.matcher(letras);
         
         if(!matcher.matches()){
-            msg.append("Caracteres especiais inválidos.");
+            msg.append("Caracteres especiais inválidos. ");
             return(false);
         }else{
             return(true);
@@ -32,7 +32,7 @@ public class ValidaRegex {
         Matcher matcher = test.matcher(numeros);
         
         if(!matcher.matches()){
-            msg.append("Digite apenas os números, pontos e traços do cpf.");
+            msg.append("Digite apenas os números, pontos e traços do cpf. ");
             return(false);
         }else{
             return(true);
@@ -46,7 +46,7 @@ public class ValidaRegex {
         Matcher matcher = test.matcher(n);
         
         if(!matcher.matches()){
-            msg.append("Digite apenas números.");
+            msg.append("Digite apenas números. ");
             return(false);
         }else{
             return(true);

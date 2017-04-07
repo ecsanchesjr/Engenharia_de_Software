@@ -52,7 +52,7 @@ public final class Valida {
         boolean control = true;
         
         if(Login.isEmpty()){
-            msg.append("Campo de usuario vazio.");
+            msg.append("Campo de usuario vazio. ");
             control = false;
         }
         
@@ -61,11 +61,11 @@ public final class Valida {
             control = false;
         }
         if(Password.length() <= 5){
-            msg.append("Senha muito curta.");
+            msg.append("Senha muito curta. ");
             control = false;
         }
         if(Password.length() > 20){
-            msg.append("Senha muito longa.");
+            msg.append("Senha muito longa. ");
             control = false;
         }
         return(control);
@@ -75,7 +75,7 @@ public final class Valida {
        // msg.setLength(0);
         
         if(cpf.isEmpty()){
-            msg.append("Campo de CPF vazio.");
+            msg.append("Campo de CPF vazio. ");
             return(false);
         }else if(!validaCpfNum(cpf, msg)){
             return(false);
@@ -101,11 +101,11 @@ public final class Valida {
             if(idade < 200){
                 return(true);
             }else{
-                msg.append("Idade inválida(acima de 200 anos).");
+                msg.append("Idade inválida(acima de 200 anos). ");
                 return(false);
             }
         }else{
-            msg.append("Idade inválida(negativa).");
+            msg.append("Idade inválida(negativa). ");
             return(false);
         }
     }

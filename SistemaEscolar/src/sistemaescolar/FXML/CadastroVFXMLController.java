@@ -53,11 +53,17 @@ public class CadastroVFXMLController implements Initializable {
     
     public void Cadastro() throws SQLException{
         int idade;
+        errorLabel.setText("");
         StringBuilder msg = new StringBuilder("");
         try{
             idade = Integer.parseInt(textIdade.getText());
             if(validaCadastroV(textNome.getText(), textCpf.getText(), textRg.getText(), idade, TIPO_VISITANTE, msg)){
                 insertPessoaV(textNome.getText(), textCpf.getText(), textRg.getText(), idade);
+                textNome.setText("");
+                textCpf.setText("");
+                textRg.setText("");
+                textIdade.setText("");
+                close();
             }else{
                 errorLabel.setText(msg.toString());
         }
