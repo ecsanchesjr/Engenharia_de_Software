@@ -31,15 +31,17 @@ public final class Valida {
     public static Boolean validaNome(String nome, StringBuilder msg){
        // msg.setLength(0);
         
-        if(!validaLetras(nome, msg)){
-            return(false);
-        }else if(nome.isEmpty()){
+        if(nome.isEmpty()){
             msg.append("Nome vazio. ");
             return(false);
         }else if(nome.length() > 100){
             msg.append("Nome muito grande. ");
             return(false);
-        }else{
+        }
+        else if(!validaLetras(nome, msg)){
+            return(false);
+        }
+        else{
             return(true);
         }
     }
