@@ -41,7 +41,7 @@ public class UserConexaoBD {
         try{
             conUser.close();
         }catch(SQLException e){
-            System.out.println("Erro ao fechar conexão, vei, fodeu o role D:");
+            System.out.println("Erro ao fechar conexão de usuário.");
         }
     }
     
