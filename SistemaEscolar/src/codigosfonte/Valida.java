@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemaescolar;
+package codigosfonte;
 
-import static sistemaescolar.Constantes_Tipos.*;
-import static sistemaescolar.ValidaRegex.validaCpfNum;
-import static sistemaescolar.ValidaRegex.validaLetras;
+import static codigosfonte.Constantes_Tipos.*;
+import static codigosfonte.ValidaRegex.validaCpfNum;
+import static codigosfonte.ValidaRegex.validaLetras;
 
 public final class Valida {
        

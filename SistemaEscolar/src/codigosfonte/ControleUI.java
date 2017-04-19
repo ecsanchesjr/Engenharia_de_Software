@@ -1,4 +1,4 @@
-package sistemaescolar;
+package codigosfonte;
 
 /*
     CLASSE PRINCIPAL

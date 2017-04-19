@@ -5,6 +5,7 @@
  */
 package sistemaescolar;
 
+import codigosfonte.UserConexaoBD;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
