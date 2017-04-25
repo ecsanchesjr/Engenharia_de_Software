@@ -5,14 +5,13 @@
  */
 package sistemaescolar;
 
-import codigosfonte.ConexaoBD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
-import static codigosfonte.PessoaDAO.insertPessoaV;
+import static sistemaescolar.PessoaDAO.insertPessoaV;
 
 /**
  *
