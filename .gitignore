@@ -60,6 +60,7 @@ nbproject/build-impl.xml
 *.xml
 /dist/
 *.exec
+*.exec-*
 *.js
 /Sistema_Escolar/nbproject/private/
 /Sistema_Escolar/build/
