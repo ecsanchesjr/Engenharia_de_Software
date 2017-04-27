@@ -5,9 +5,8 @@
  */
 package sistemaescolar;
 
+import static sistemaescolar.ValidaRegex.*;
 import static sistemaescolar.Constantes_Tipos.*;
-import static sistemaescolar.ValidaRegex.validaCpfNum;
-import static sistemaescolar.ValidaRegex.validaLetras;
 
 public final class Valida {
        
@@ -87,7 +86,7 @@ public final class Valida {
     public static Boolean validaRg(String rg, StringBuilder msg){
         //msg.setLength(0);
         if(rg.isEmpty()){
-            msg.append("Campo de RG vazio.");
+            msg.append("Campo de RG vazio. ");
             return(false);
         }else{
             return(true);
@@ -110,6 +109,44 @@ public final class Valida {
         }
     }
     
+    private static boolean validaEmail(String email, StringBuilder msg) {
+        if(email.isEmpty()){
+            msg.append("Campo de e-mail vazio. ");
+            return(false);
+        }else if(validaEmailRegex(email, msg)){
+            return(true);
+        }else{
+            return(false);
+        }
+    }
+    
+    private static boolean validaNick(String nick, StringBuilder msg) {
+        if(nick.isEmpty()){
+            msg.append("Campo de nick vazio. ");
+            return(false);
+        }else if(validaNickRegex(nick, msg)){
+            return(true);
+        }else{
+            return(false);
+        }
+    }
+    
+    
+    private static boolean validaPass(String passwd1, String passwd2, StringBuilder msg) {
+        if(passwd1.isEmpty()){
+            msg.append("Campo de senha vazio. ");
+            return(false);
+        }else if(passwd2.isEmpty()){
+            msg.append("Campo de repetir senha vazio. ");
+            return(false);
+        }else if(!passwd1.equals(passwd2)){
+            msg.append("Campos de senha não são iguais.");
+            return(false);
+        }else{
+            return(true);
+        }
+    }
+    
     public static Boolean validaCadastroV(String nome, String cpf, String rg, int idade, int tipo, StringBuilder msg){       
         boolean nomeV = validaNome(nome, msg);
         boolean cpfV = validaCpf(cpf, msg);
@@ -119,4 +156,42 @@ public final class Valida {
         
         return(nomeV && cpfV && rgV && idadeV && tipoV);  
     } 
+    
+    public static Boolean validaCadastroA(String nome, String cpf, String rg, int idade, String email, String nick, String passwd1, String passwd2, int tipo, StringBuilder msg){
+        boolean nomeA = validaNome(nome, msg);
+        boolean cpfA = validaCpf(cpf, msg);
+        boolean rgA = validaRg(rg, msg);
+        boolean idadeA = validaIdade(idade, msg);
+        boolean emailA = validaEmail(email, msg);
+        boolean nickA = validaNick(nick, msg);
+        boolean passwdA = validaPass(passwd1, passwd2, msg);
+        boolean tipoA = (tipo == TIPO_ALUNO);
+         
+        return(nomeA && cpfA && rgA && idadeA && emailA && nickA && passwdA && tipoA);
+    }
+    
+    public static Boolean validaCadastroP(String nome, String cpf, String rg, int idade, String nick, String passwd1, String passwd2, int tipo, StringBuilder msg){
+        boolean nomeP = validaNome(nome, msg);
+        boolean cpfP = validaCpf(cpf, msg);
+        boolean rgP = validaRg(rg, msg);
+        boolean idadeP = validaIdade(idade, msg);
+        boolean nickP = validaNick(nick, msg);
+        boolean passwdP = validaPass(passwd1, passwd2, msg);
+        boolean tipoP = (tipo == TIPO_PROFESSOR);
+         
+        return(nomeP && cpfP && rgP && idadeP && nickP && passwdP && tipoP);
+    }
+    
+    public static Boolean validaCadastroF(String nome, String cpf, String rg, int idade, String nick, String passwd1, String passwd2, int tipo, StringBuilder msg){
+        boolean nomeF = validaNome(nome, msg);
+        boolean cpfF = validaCpf(cpf, msg);
+        boolean rgF = validaRg(rg, msg);
+        boolean idadeF = validaIdade(idade, msg);
+        boolean nickF = validaNick(nick, msg);
+        boolean passwdF = validaPass(passwd1, passwd2, msg);
+        boolean tipoF = (tipo == TIPO_FUNCIONARIO);
+         
+        return(nomeF && cpfF && rgF && idadeF && nickF && passwdF && tipoF);
+    }
+    
 }

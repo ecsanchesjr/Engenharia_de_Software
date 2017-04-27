@@ -20,13 +20,13 @@ public class ConexaoBD {
                 //NOTHING TO DO HERE
             }
         }
-        startCon();
+        startConection();
         return(conexao);
     }
     
-    public static Connection startCon(){
+    public static Connection startConection(){
         try{
-            String url = "jdbc:postgresql://localhost:5432/Escola_BD";
+            String url = "jdbc:postgresql://localhost:5432/Escola_DB";
             String user = "postgres";
             String password = "132333";
             
@@ -34,7 +34,7 @@ public class ConexaoBD {
             
             conexao = DriverManager.getConnection(url, user, password);
         }catch(ClassNotFoundException | SQLException e){
-            // NOTHING TO DO HERE
+            
         }
         
         return(conexao);

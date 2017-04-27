@@ -8,7 +8,7 @@ package sistemaescolar.FXML;
 
 
 import java.net.URL;
-import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +17,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import sistemaescolar.Pessoa;
+import sistemaescolar.UserConexaoBD;
 import sistemaescolar.Valida;
+import java.io.IOException;
 
 public class LoginFXMLController implements Initializable {
 
@@ -37,8 +40,8 @@ public class LoginFXMLController implements Initializable {
     Button BtnRegister;
     
     @FXML
-    public void Login(){
-        Connection con;
+    public void Login() throws IOException{
+        boolean con;
         StringBuilder msg = new StringBuilder("");
         /*
             MÉTODO QUE O BOTÃO LOGIN IRÁ CHAMAR APÓS CLICADO
@@ -52,14 +55,20 @@ public class LoginFXMLController implements Initializable {
                 conUser.setSenha(Password.getText());
 
                 con = conUser.startCon();
-                if(con==null){
+                if(con == false){
                     labelMsg.setText("Senha incorreta ou usuário não cadastrado.");
                 }else{  // ALTERAR ISSO QUANDO FOR MELHORAR O SISTEMA
-                    labelMsg.setText("USUÁRIO CONECTADO!");
+                    //labelMsg.setText("USUÁRIO CONECTADO!");
+                    Pessoa.getInstance().setUser(Login.getText().toLowerCase());
+                    Pessoa.getInstance().setTipo(UserConexaoBD.getPessoaType(Pessoa.getInstance().getUser()));
+                    Pessoa.getInstance().setNome(UserConexaoBD.getPessoaName(Pessoa.getInstance().getUser()));
+                    Pessoa.getInstance().setRe(UserConexaoBD.getPessoaRe(Pessoa.getInstance().getUser()));
+                   
+                    sistemaescolar.ControleUI.getInstance().showHome();
                     Login.setText("");
                     Password.setText("");
                 }
-            }catch(Exception e){
+            }catch(SQLException e){
                 System.out.println("Erro: "+e);
             }
         }else{
@@ -67,14 +76,8 @@ public class LoginFXMLController implements Initializable {
                     
         }
     }
-    
-    @FXML
-    public void getCadV(){
-        sistemaescolar.ControleUI.getInstance().showRegisterV();
-    }
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
-    
 }

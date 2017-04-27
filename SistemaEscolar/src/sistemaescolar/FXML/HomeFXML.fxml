@@ -1,25 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" styleClass="block" stylesheets="@Stylesheets/Common.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaescolar.FXML.HomeFXMLController">
    <children>
-      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="37.0" styleClass="font-title" stylesheets="@Stylesheets/Common.css" text="Bem vindo ao Sistema de Gerênciamento Escolar " textAlignment="CENTER" textFill="WHITE" />
-      <AnchorPane layoutX="911.0" layoutY="384.0">
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="206.0" layoutY="27.0" styleClass="font-title" stylesheets="@Stylesheets/Common.css" text="Bem vindo ao Sistema Escolar " textAlignment="CENTER" textFill="WHITE" />
+      <AnchorPane layoutX="809.0" layoutY="355.0">
          <children>
-            <Button fx:id="cadVBtn" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Visitante" />
-            <Button fx:id="cadABtn" layoutY="58.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Aluno" />
-            <Button fx:id="CadPBtn" layoutY="115.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Professor" />
-            <Button fx:id="CadFBtn" layoutY="173.0" mnemonicParsing="false" styleClass="rich-blue" text="Cadastrar Funcionário" />
+            <Button fx:id="cadVBtn" mnemonicParsing="false" onAction="#getCadV" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Visitante" />
+            <Button fx:id="cadABtn" layoutY="58.0" mnemonicParsing="false" onAction="#getCadA" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Aluno" />
+            <Button fx:id="cadPBtn" layoutY="115.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Professor" />
+            <Button fx:id="cadFBtn" layoutY="173.0" mnemonicParsing="false" styleClass="rich-blue" text="Cadastrar Funcionário" />
          </children>
       </AnchorPane>
-      <Label layoutX="26.0" layoutY="105.0" prefHeight="39.0" prefWidth="125.0" styleClass="font" text="Está logado como:" textFill="WHITE" />
-      <Label fx:id="typeLabel" layoutX="160.0" layoutY="104.0" prefHeight="39.0" prefWidth="227.0" textFill="WHITE" wrapText="true" />
-      <Label fx:id="nameLabel" layoutX="26.0" layoutY="154.0" prefHeight="39.0" prefWidth="869.0" textFill="WHITE" wrapText="true" />
-      <Label layoutX="26.0" layoutY="202.0" prefHeight="39.0" prefWidth="31.0" text="RE:" textFill="WHITE" />
-      <Label fx:id="reLabel" layoutX="68.0" layoutY="202.0" prefHeight="39.0" prefWidth="213.0" textFill="WHITE" wrapText="true" />
-      <Button fx:id="closeBtn" layoutX="911.0" layoutY="699.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Fechar Sistema" />
+      <AnchorPane layoutX="19.0" layoutY="105.0" prefHeight="118.0" prefWidth="528.0" styleClass="labelGraph">
+         <children>
+            <Label layoutX="14.0" layoutY="1.0" prefHeight="39.0" prefWidth="173.0" text="Está logado como:" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="font-labelInfos" />
+               </styleClass>
+            </Label>
+            <Label fx:id="typeLabel" layoutX="187.0" layoutY="1.0" prefHeight="39.0" prefWidth="227.0" textFill="WHITE" wrapText="true">
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="font-labelInfos" />
+               </styleClass>
+            </Label>
+            <Label fx:id="nameLabel" layoutX="14.0" layoutY="40.0" prefHeight="39.0" prefWidth="519.0" textFill="WHITE" wrapText="true">
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="font-labelInfos" />
+               </styleClass>
+            </Label>
+            <Label layoutX="14.0" layoutY="79.0" prefHeight="39.0" prefWidth="31.0" text="RE:" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="font-labelInfos" />
+               </styleClass>
+            </Label>
+            <Label fx:id="reLabel" layoutX="45.0" layoutY="79.0" prefHeight="39.0" prefWidth="213.0" textFill="WHITE" wrapText="true">
+               <styleClass>
+                  <String fx:value="font" />
+                  <String fx:value="font-labelInfos" />
+               </styleClass>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="closeBtn" layoutX="809.0" layoutY="670.0" mnemonicParsing="false" onAction="#close" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Fechar Sistema" />
    </children>
 </AnchorPane>

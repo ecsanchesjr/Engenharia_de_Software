@@ -25,6 +25,19 @@ public class ValidaRegex {
         }
     }
     
+    public static Boolean validaNickRegex(String nick, StringBuilder msg){
+        String pattern = "^[a-zA-Z][a-zA-Z0-9]{3,}";
+        Pattern test = Pattern.compile(pattern);
+        Matcher matcher = test.matcher(nick);
+        
+        if(!matcher.matches()){
+            msg.append("Formato de nick inválido. ");
+            return(false);
+        }else{
+            return(true);
+        }
+    }
+    
     public static Boolean validaCpfNum(String numeros, StringBuilder msg){
         
         String pattern = "[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$";
@@ -51,5 +64,18 @@ public class ValidaRegex {
         }else{
             return(true);
         } 
+    }
+    
+    public static Boolean validaEmailRegex(String email, StringBuilder msg){
+        String pattern = "([a-zA-Z])(.)*@(.+)\\.(.+)";
+        Pattern test = Pattern.compile(pattern);
+        Matcher matcher = test.matcher(email);
+        
+        if(!matcher.matches()){
+            msg.append("Formato de e-mail inválido. ");
+            return(false);
+        }else{
+            return(true);
+        }
     }
 }

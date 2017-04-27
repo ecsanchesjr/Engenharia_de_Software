@@ -18,11 +18,19 @@ public class ControleUI extends Application {
     
     //PARENTS PARA MANIPULAÇÃO DO FXML
     private static Parent loginFXML; 
+    private static Parent homeFXML;
     private static Parent registerVFXML;
+    private static Parent registerAFXML;
+    private static Parent registerPFXML;
+    private static Parent registerFFXML;
    
     //SCENES
     private static Scene loginScene;
+    private static Scene homeScene;
     private static Scene registerVScene;
+    private static Scene registerAScene;
+    private static Scene registerPScene;
+    private static Scene registerFScene;
     
     
     private static ControleUI INSTANCE = null;
@@ -44,9 +52,6 @@ public class ControleUI extends Application {
        
         try{
             loginFXML = FXMLLoader.load(getClass().getResource("FXML/LoginFXML.fxml"));
-            registerVFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroVFXML.fxml"));
-            
-            registerVScene = new Scene(registerVFXML);
             loginScene = new Scene(loginFXML); 
         }catch(IOException e){
             System.out.println("Erro"+e);
@@ -59,8 +64,38 @@ public class ControleUI extends Application {
         mainStage.show();
     }
     
-    public void showRegisterV(){
+    public void showHome() throws IOException{
+        homeFXML = FXMLLoader.load(getClass().getResource("FXML/HomeFXML.fxml"));
+        homeScene = new Scene(homeFXML);
+        mainStage.setScene(homeScene);
+        mainStage.show();
+    }
+    
+    public void showRegisterV() throws IOException{
+        registerVFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroVFXML.fxml"));
+        registerVScene = new Scene(registerVFXML);
         secondStage.setScene(registerVScene);
+        secondStage.show();
+    }
+
+    public void showRegisterA() throws IOException{
+        registerAFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroAFXML.fxml"));
+        registerAScene = new Scene(registerAFXML);
+        secondStage.setScene(registerAScene);
+        secondStage.show();
+    }
+    
+    public void showRegisterP() throws IOException{
+        registerPFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroPFXML.fxml"));
+        registerPScene = new Scene(registerPFXML);
+        secondStage.setScene(registerPScene);
+        secondStage.show();
+    }
+    
+    public void showRegisterF() throws IOException{
+        registerFFXML = FXMLLoader.load(getClass().getResource("FXML/CadastroFFXML.fxml"));
+        registerFScene = new Scene(registerFFXML);
+        secondStage.setScene(registerFScene);
         secondStage.show();
     }
     

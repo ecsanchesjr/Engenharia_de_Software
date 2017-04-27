@@ -12,18 +12,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import static sistemaescolar.Constantes_Tipos.TIPO_VISITANTE;
-import static sistemaescolar.PessoaDAO.insertPessoaV;
-import static sistemaescolar.Valida.validaCadastroV;
+import static sistemaescolar.Constantes_Tipos.*;
+import static sistemaescolar.PessoaDAO.insertPessoaP;
+import static sistemaescolar.Valida.validaCadastroP;
 
 /**
  * FXML Controller class
  *
  * @author ecsan
  */
-public class CadastroVFXMLController implements Initializable {
+public class CadastroPFXMLController implements Initializable {
+
     @FXML
     TextField textNome;
     @FXML
@@ -32,6 +34,12 @@ public class CadastroVFXMLController implements Initializable {
     TextField textRg;
     @FXML
     TextField textIdade;
+    @FXML
+    TextField textNick;
+    @FXML
+    PasswordField textPass1;
+    @FXML
+    PasswordField textPass2;
    
     @FXML
     Label errorLabel;
@@ -41,29 +49,33 @@ public class CadastroVFXMLController implements Initializable {
     @FXML
     Button cadBtn;
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-
+    
     public void close(){
        Stage stage = (Stage) fecharBtn.getScene().getWindow();
        stage.close();
     }
     
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
     public void Cadastro() throws SQLException{
         int idade;
         errorLabel.setText("");
         StringBuilder msg = new StringBuilder("");
         try{
             idade = Integer.parseInt(textIdade.getText());
-            if(validaCadastroV(textNome.getText(), textCpf.getText(), textRg.getText(), idade, TIPO_VISITANTE, msg)){
-                insertPessoaV(textNome.getText(), textCpf.getText(), textRg.getText(), idade);
+            if(validaCadastroP(textNome.getText(), textCpf.getText(), textRg.getText(), idade, textNick.getText(), textPass1.getText(), textPass2.getText(), TIPO_PROFESSOR, msg)){
+                insertPessoaP(textNome.getText(), textCpf.getText(), textRg.getText(), idade, textNick.getText(), textPass1.getText());
                 textNome.setText("");
                 textCpf.setText("");
                 textRg.setText("");
                 textIdade.setText("");
-                errorLabel.setText("Cadastro de Visitante concluído com sucesso.");
+                textNick.setText("");
+                textPass1.setText("");
+                errorLabel.setText("Cadastro de Professor concluído com sucesso.");
             }else{
                 errorLabel.setText(msg.toString());
         }
@@ -71,6 +83,7 @@ public class CadastroVFXMLController implements Initializable {
             errorLabel.setText("Idade Inválida");
         }catch(Exception e){
             e.printStackTrace();
-        }
+        }    
     }
+    
 }

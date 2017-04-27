@@ -5,6 +5,7 @@
  */
 package sistemaescolar;
 
+import java.sql.SQLException;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 
@@ -14,18 +15,18 @@ import org.testng.annotations.Test;
  */
 public class UserConexaoBDNGTest {  
     @Test
-    public void startConTest(){
+    public void startConTest() throws SQLException{
         UserConexaoBD conUser = new UserConexaoBD();
         
         conUser.setUsuario("elss");
-        conUser.setSenha("132333");
+        conUser.setSenha("123");
         
-        boolean c = (conUser.startCon() != null);
+        boolean c = conUser.startCon();
         assertTrue(c);
     }
     
     @Test
-    public void closeConTest(){
+    public void closeConTest() throws SQLException{
         UserConexaoBD conUser = new UserConexaoBD();
         
         conUser.setUsuario("elss");

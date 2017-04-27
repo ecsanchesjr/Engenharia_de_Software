@@ -16,9 +16,20 @@
     -fx-text-fill: #FFFFFF;
 }
 
+.font-labelInfos{
+    -fx-font-size: 20px;
+}
+
+.labelGraph{
+    -fx-background-color: #2a58a3;
+    -fx-background-radius: 30 30 30 30;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 2, 0, 2, 2);
+}
+
 .font-title{
     -fx-font-size: 50px;
     -fx-font-style: oblique;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 2, 0, 2, 2);
 }
 
 .rich-blue {
