@@ -16,8 +16,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static sistemaescolar.Constantes_Tipos.*;
-import static sistemaescolar.PessoaDAO.insertPessoaP;
-import static sistemaescolar.Valida.validaCadastroP;
+import static sistemaescolar.PessoaDAO.insertPessoaF;
+import static sistemaescolar.Valida.validaCadastroF;
 
 /**
  * FXML Controller class
@@ -67,14 +67,15 @@ public class CadastroFFXMLController implements Initializable {
         StringBuilder msg = new StringBuilder("");
         try{
             idade = Integer.parseInt(textIdade.getText());
-            if(validaCadastroP(textNome.getText(), textCpf.getText(), textRg.getText(), idade, textNick.getText(), textPass1.getText(), textPass2.getText(), TIPO_FUNCIONARIO, msg)){
-                insertPessoaP(textNome.getText(), textCpf.getText(), textRg.getText(), idade, textNick.getText(), textPass1.getText());
+            if(validaCadastroF(textNome.getText(), textCpf.getText(), textRg.getText(), idade, textNick.getText(), textPass1.getText(), textPass2.getText(), TIPO_FUNCIONARIO, msg)){
+                insertPessoaF(textNome.getText(), textCpf.getText(), textRg.getText(), idade, textNick.getText(), textPass1.getText());
                 textNome.setText("");
                 textCpf.setText("");
                 textRg.setText("");
                 textIdade.setText("");
                 textNick.setText("");
                 textPass1.setText("");
+                textPass2.setText("");
                 errorLabel.setText("Cadastro de Funcionário concluído com sucesso.");
             }else{
                 errorLabel.setText(msg.toString());

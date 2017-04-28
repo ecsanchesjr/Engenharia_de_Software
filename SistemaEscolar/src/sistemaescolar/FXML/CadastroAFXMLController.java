@@ -78,6 +78,7 @@ public class CadastroAFXMLController implements Initializable {
                 textEmail.setText("");
                 textNick.setText("");
                 textPass1.setText("");
+                textPass2.setText("");
                 errorLabel.setText("Cadastro de Aluno concluído com sucesso.");
             }else{
                 errorLabel.setText(msg.toString());

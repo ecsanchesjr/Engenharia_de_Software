@@ -17,10 +17,9 @@ public class PessoaDAO {
         try{
             Connection con = ConexaoBD.getCon();
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-            
             ResultSet busca = s.executeQuery("SELECT pessoa_regescola FROM Pessoa WHERE pessoa_cpf='" +cpf+ "'");
             busca.first();
-            int re = Integer.parseInt(busca.getString("pessoa_nome"));
+            int re = Integer.parseInt(busca.getString("pessoa_regescola"));
             return(re);
         }catch(SQLException e){
             System.out.println("Erro getRe: " +e.toString());
@@ -52,9 +51,9 @@ public class PessoaDAO {
             Connection con = ConexaoBD.getCon();
             Statement s = con.createStatement();
             
-            s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade, pessoa_emailresponsavel) VALUES ('" +TIPO_ALUNO+ "','" +p.getNome()+ "','" +p.getCpf()+ "','" +p.getRg()+ "','" +p.getIdade()+ "','" +p.getEmail()+ "')");
+            s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade, pessoa_emailresponsavel, pessoa_permissao) VALUES ('" +TIPO_ALUNO+ "','" +p.getNome()+ "','" +p.getCpf()+ "','" +p.getRg()+ "','" +p.getIdade()+ "','" +p.getEmail()+ "','0')");
             int re = getPessoaRe(cpf);
-            s.executeUpdate("INSERT INTO Usuario (usuario_regescola, usuario_user, usuario_passwd) VALUES ('" +re+ "','" +p.getUser()+ "','" +pass+ "')");
+            createPessoaUser(re, p.getUser(), pass);
         }catch(SQLException e){
             System.out.println("Erro InsertAluno: " +e.toString());
         }
@@ -69,7 +68,7 @@ public class PessoaDAO {
             
             s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade) VALUES ('" +TIPO_PROFESSOR+ "','" +p.getNome()+ "','" +p.getCpf()+ "','" +p.getRg()+ "','" +p.getIdade()+ "')");
             int re = getPessoaRe(cpf);
-            s.executeUpdate("INSERT INTO Usuario (usuario_regescola, usuario_user, usuario_passwd) VALUES ('" +re+ "','" +p.getUser()+ "','" +pass+ "')");
+            createPessoaUser(re, p.getUser(), pass);
         }catch(SQLException e){
             System.out.println("Erro InsertProfessor: " +e.toString());
         }
@@ -84,9 +83,20 @@ public class PessoaDAO {
             
             s.executeUpdate("INSERT INTO Pessoa (pessoa_tipo, pessoa_nome, pessoa_cpf, pessoa_rg, pessoa_idade) VALUES ('" +TIPO_FUNCIONARIO+ "','" +p.getNome()+ "','" +p.getCpf()+ "','" +p.getRg()+ "','" +p.getIdade()+ "')");
             int re = getPessoaRe(cpf);
-            s.executeUpdate("INSERT INTO Usuario (usuario_regescola, usuario_user, usuario_passwd) VALUES ('" +re+ "','" +p.getUser()+ "','" +pass+ "')");
+            createPessoaUser(re, p.getUser(), pass);
         }catch(SQLException e){
             System.out.println("Erro InsertFuncionario: " +e.toString());
+        }
+    }
+    
+    public static void createPessoaUser(int re, String user, String pass) throws SQLException{
+        try{
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement();
+            
+            s.executeUpdate("INSERT INTO Usuario (usuario_regescola, usuario_user, usuario_passwd) VALUES ('" +re+ "','" +user+ "','" +pass+ "')");
+        }catch(SQLException e){
+            System.out.println("Erro na criação de usuário" +e.toString());
         }
     }
 

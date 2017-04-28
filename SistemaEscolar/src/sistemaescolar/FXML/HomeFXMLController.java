@@ -43,13 +43,13 @@ public class HomeFXMLController implements Initializable {
     }
     
     @FXML
-    public void getCadF(){
-        
+    public void getCadF() throws IOException{
+        sistemaescolar.ControleUI.getInstance().showRegisterF();
     }
     
     @FXML
-    public void getCadP(){
-        
+    public void getCadP() throws IOException{
+        sistemaescolar.ControleUI.getInstance().showRegisterP();
     }
     
     @FXML

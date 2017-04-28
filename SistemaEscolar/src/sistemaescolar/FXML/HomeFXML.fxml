@@ -12,8 +12,8 @@
          <children>
             <Button fx:id="cadVBtn" mnemonicParsing="false" onAction="#getCadV" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Visitante" />
             <Button fx:id="cadABtn" layoutY="58.0" mnemonicParsing="false" onAction="#getCadA" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Aluno" />
-            <Button fx:id="cadPBtn" layoutY="115.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Professor" />
-            <Button fx:id="cadFBtn" layoutY="173.0" mnemonicParsing="false" styleClass="rich-blue" text="Cadastrar Funcionário" />
+            <Button fx:id="cadPBtn" layoutY="115.0" mnemonicParsing="false" onAction="#getCadP" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Cadastrar Professor" />
+            <Button fx:id="cadFBtn" layoutY="173.0" mnemonicParsing="false" onAction="#getCadF" styleClass="rich-blue" text="Cadastrar Funcionário" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="19.0" layoutY="105.0" prefHeight="118.0" prefWidth="528.0" styleClass="labelGraph">

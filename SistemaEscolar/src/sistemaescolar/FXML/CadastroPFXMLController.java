@@ -75,6 +75,7 @@ public class CadastroPFXMLController implements Initializable {
                 textIdade.setText("");
                 textNick.setText("");
                 textPass1.setText("");
+                textPass2.setText("");
                 errorLabel.setText("Cadastro de Professor concluído com sucesso.");
             }else{
                 errorLabel.setText(msg.toString());
