@@ -27,7 +27,7 @@
       <Label layoutX="99.0" layoutY="157.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="CPF:" />
       <Label layoutX="99.0" layoutY="203.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="RG:" />
       <Label layoutX="99.0" layoutY="248.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="Idade:" />
-      <Button fx:id="cadBtn" layoutX="508.0" layoutY="374.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" />
-      <Button fx:id="fecharBtn" layoutX="147.0" layoutY="374.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Fechar" />
+      <Button fx:id="cadBtn" layoutX="508.0" layoutY="374.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" textFill="WHITE" />
+      <Button fx:id="fecharBtn" layoutX="147.0" layoutY="374.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Fechar" textFill="WHITE" />
    </children>
 </AnchorPane>

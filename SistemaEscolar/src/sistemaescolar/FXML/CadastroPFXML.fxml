@@ -33,8 +33,8 @@
       <Label layoutX="99.0" layoutY="248.0" prefHeight="29.0" prefWidth="48.0" styleClass="font" text="Idade:" />
       <AnchorPane layoutX="143.0" layoutY="560.0">
          <children>
-            <Button fx:id="cadBtn" layoutX="364.0" layoutY="3.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" />
-            <Button fx:id="fecharBtn" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Fechar" />
+            <Button fx:id="cadBtn" layoutX="364.0" layoutY="3.0" mnemonicParsing="false" onAction="#Cadastro" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Cadastrar" textFill="WHITE" />
+            <Button fx:id="fecharBtn" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="60.0" prefWidth="195.0" styleClass="rich-blue" text="Fechar" textFill="WHITE" />
          </children>
       </AnchorPane>
       <Label layoutX="101.0" layoutY="292.0" prefHeight="29.0" prefWidth="40.0" styleClass="font" text="Nick:" wrapText="true" />

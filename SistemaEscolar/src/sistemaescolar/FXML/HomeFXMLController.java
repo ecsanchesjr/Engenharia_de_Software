@@ -7,12 +7,13 @@ package sistemaescolar.FXML;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import static sistemaescolar.Constantes_Tipos.*;
 import sistemaescolar.Pessoa;
@@ -35,6 +36,12 @@ public class HomeFXMLController implements Initializable {
     Button cadFBtn;
     @FXML
     Button closeBtn;
+    @FXML
+    MenuItem validaCracha;
+    @FXML
+    MenuItem geraCracha;
+    @FXML
+    MenuButton controlVisit;
 
        
     @FXML
@@ -61,6 +68,16 @@ public class HomeFXMLController implements Initializable {
     public void close(){
        Stage stage = (Stage) closeBtn.getScene().getWindow();
        stage.close();
+    }
+    
+    @FXML
+    public void validaV(){
+        
+    }
+    
+    @FXML
+    public void geraV() throws IOException{
+        sistemaescolar.ControleUI.getInstance().showGeraCrachaV();
     }
     
     @Override
@@ -90,11 +107,13 @@ public class HomeFXMLController implements Initializable {
             cadPBtn.setVisible(false);
             cadABtn.setVisible(false);
             cadFBtn.setVisible(false);
+            controlVisit.setVisible(false);
         }else{
             cadVBtn.setVisible(true);
             cadPBtn.setVisible(true);
             cadABtn.setVisible(true);
             cadFBtn.setVisible(true);
+            controlVisit.setVisible(true);
         }
     }
 

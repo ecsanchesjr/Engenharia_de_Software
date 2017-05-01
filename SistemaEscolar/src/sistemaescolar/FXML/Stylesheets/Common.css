@@ -40,9 +40,12 @@
    -fx-background-insets: 0,1,2,3;
    -fx-background-radius: 3,2,2,2;
    -fx-padding: 12 30 12 30;
-   -fx-text-fill: white;
    -fx-font-size: 12px;
    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 2, 2);
+}
+
+.textWhite{
+    -fx-text-fill: #ff9900;
 }
 
 .rich-blue Text {
@@ -71,4 +74,8 @@
    linear-gradient(#426ab7, #263e75),
    linear-gradient(#395cab, #223768);
    -fx-background-radius: 15px;
+}
+
+.labelBack{
+    -fx-background-color: #ffffff;
 }
