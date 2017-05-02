@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -13,30 +12,30 @@
       <AnchorPane layoutX="450.0" layoutY="140.0">
          <children>
             <Label fx:id="inicioLabel" styleClass="font-labelInfos" text="Hora de Início: " textFill="WHITE" />
-            <Label fx:id="hrInicioLabel" layoutX="163.0" prefHeight="24.0" prefWidth="0.0" textFill="WHITE">
+            <Label fx:id="hrInicioLabel" layoutX="171.0" prefHeight="30.0" prefWidth="86.0">
                <styleClass>
                   <String fx:value="font-labelInfos" />
                   <String fx:value="labelBack" />
                </styleClass>
             </Label>
             <Label fx:id="codeLabel" layoutY="42.0" styleClass="font-labelInfos" text="Código do crachá:" textFill="WHITE" />
+            <Label fx:id="codeLabel2" layoutX="171.0" layoutY="39.0" prefHeight="30.0" prefWidth="86.0">
+               <styleClass>
+                  <String fx:value="labelBack" />
+                  <String fx:value="font-labelInfos" />
+               </styleClass>
+            </Label>
          </children>
       </AnchorPane>
       <TextField fx:id="cpfText" layoutX="175.0" layoutY="148.0" />
       <Label layoutX="21.0" layoutY="150.0" styleClass="font-labelInfos" text="CPF do Visitante:" textFill="WHITE" />
-      <Label fx:id="errLabel" layoutX="28.0" layoutY="179.0" prefHeight="19.0" prefWidth="340.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Label fx:id="errLabel" alignment="TOP_CENTER" layoutX="28.0" layoutY="182.0" prefHeight="53.0" prefWidth="329.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
       <AnchorPane layoutX="271.0" layoutY="235.0">
          <children>
-            <Button fx:id="closeBtn" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="135.0" styleClass="rich-blue" text="Fechar" textFill="WHITE" />
-            <Button fx:id="gerarBtn" layoutX="224.0" layoutY="3.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="135.0" styleClass="rich-blue" text="Gerar" textFill="WHITE" />
+            <Button fx:id="closeBtn" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#close" prefHeight="39.0" prefWidth="135.0" styleClass="rich-blue" text="Fechar" textFill="WHITE" />
+            <Button fx:id="gerarBtn" layoutX="224.0" layoutY="3.0" mnemonicParsing="false" onAction="#gerar" prefHeight="39.0" prefWidth="135.0" styleClass="rich-blue" text="Gerar" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <RadioButton fx:id="cpfVerif" layoutX="361.0" layoutY="153.0" mnemonicParsing="false" onAction="#verCpf" />
-      <Label fx:id="codeLabel2" layoutX="617.0" layoutY="182.0" prefHeight="24.0" prefWidth="0.0" textFill="WHITE">
-         <styleClass>
-            <String fx:value="font-labelInfos" />
-            <String fx:value="labelBack" />
-         </styleClass>
-      </Label>
+      <Button fx:id="btnCpf" layoutX="356.0" layoutY="143.0" mnemonicParsing="false" onAction="#verCpf" styleClass="rich-blue" />
    </children>
 </AnchorPane>

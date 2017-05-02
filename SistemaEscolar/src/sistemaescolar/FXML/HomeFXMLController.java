@@ -71,13 +71,22 @@ public class HomeFXMLController implements Initializable {
     }
     
     @FXML
-    public void validaV(){
-        
+    public void renovarV() throws IOException{
+        sistemaescolar.ControleUI.getInstance().showRenovCrachaV();
     }
     
     @FXML
     public void geraV() throws IOException{
         sistemaescolar.ControleUI.getInstance().showGeraCrachaV();
+    }
+    
+    @FXML
+    public void toggleModes(Boolean mode){
+        cadVBtn.setVisible(mode);
+        cadPBtn.setVisible(mode);
+        cadABtn.setVisible(mode);
+        cadFBtn.setVisible(mode);
+        controlVisit.setVisible(mode);
     }
     
     @Override
@@ -103,19 +112,9 @@ public class HomeFXMLController implements Initializable {
         reLabel.setText(""+Pessoa.getInstance().getRe()+"");
 
         if(t != TIPO_DIRETOR && t != TIPO_FUNCIONARIO){
-            cadVBtn.setVisible(false);
-            cadPBtn.setVisible(false);
-            cadABtn.setVisible(false);
-            cadFBtn.setVisible(false);
-            controlVisit.setVisible(false);
+            toggleModes(false);
         }else{
-            cadVBtn.setVisible(true);
-            cadPBtn.setVisible(true);
-            cadABtn.setVisible(true);
-            cadFBtn.setVisible(true);
-            controlVisit.setVisible(true);
+            toggleModes(true);
         }
-    }
-
-    
+    }    
 }

@@ -24,6 +24,7 @@ public class ControleUI extends Application {
     private static Parent registerPFXML;
     private static Parent registerFFXML;
     private static Parent geraCrachaVFXML;
+    private static Parent renovCrachaVFXML;
    
     //SCENES
     private static Scene loginScene;
@@ -33,6 +34,7 @@ public class ControleUI extends Application {
     private static Scene registerPScene;
     private static Scene registerFScene;
     private static Scene geraCrachaVScene;
+    private static Scene renovCrachaVScene;
     
     
     private static ControleUI INSTANCE = null;
@@ -106,6 +108,13 @@ public class ControleUI extends Application {
         geraCrachaVScene = new Scene(geraCrachaVFXML);
         secondStage.setScene(geraCrachaVScene);
         secondStage.show(); 
+    }
+    
+    public void showRenovCrachaV() throws IOException{
+        renovCrachaVFXML = FXMLLoader.load(getClass().getResource("FXML/RenovarCrachaVisitanteFXML.fxml"));
+        renovCrachaVScene = new Scene(renovCrachaVFXML);
+        secondStage.setScene(renovCrachaVScene);
+        secondStage.show();
     }
     
     public static void main(String[] args) {

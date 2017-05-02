@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import static sistemaescolar.Constantes_Tipos.*;
+import static sistemaescolar.Valida.validaCpf;
 
 public class PessoaDAO {
     
@@ -100,4 +101,27 @@ public class PessoaDAO {
         }
     }
 
+        public static Boolean existsPessoaByCpf(String cpf, StringBuilder msg) throws SQLException{
+        if(validaCpf(cpf, msg)){
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+
+            ResultSet busca = s.executeQuery("SELECT pessoa_tipo FROM Pessoa WHERE pessoa_cpf='" +cpf+ "'");
+            if(busca.next()){
+                int t = Integer.parseInt(busca.getString("pessoa_tipo"));
+                if(t != TIPO_VISITANTE){
+                    msg.append("CPF encontrado não corresponde à um visitante. ");
+                    return(false);
+                }else{
+                    return(true);
+                    }
+            }else{
+                msg.append("CPF não encontrado na base de dados."); 
+                return(false);
+            }
+        }else{
+            return(false);
+        }
+    }
+    
 }

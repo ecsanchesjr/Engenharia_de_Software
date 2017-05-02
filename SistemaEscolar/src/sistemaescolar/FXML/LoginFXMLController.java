@@ -21,11 +21,7 @@ import sistemaescolar.Pessoa;
 import sistemaescolar.UserConexaoBD;
 import sistemaescolar.Valida;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+
 
 public class LoginFXMLController implements Initializable {
 
@@ -56,12 +52,6 @@ public class LoginFXMLController implements Initializable {
 
                 conUser.setUsuario(Login.getText().toLowerCase());
                 conUser.setSenha(Password.getText());
-                 
-                GregorianCalendar gc = new GregorianCalendar();
-                int hora = gc.get(Calendar.HOUR_OF_DAY);
-                System.out.println(hora);
-                int min = gc.get(Calendar.MINUTE);
-                System.out.println(min);
 
                 con = conUser.startCon();
                 if(con == false){

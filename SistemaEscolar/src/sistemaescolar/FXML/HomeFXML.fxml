@@ -18,7 +18,7 @@
             <Button fx:id="cadFBtn" layoutY="237.0" mnemonicParsing="false" onAction="#getCadF" prefHeight="39.0" prefWidth="203.0" styleClass="rich-blue" text="Cadastrar Funcionário" textFill="WHITE" />
             <MenuButton fx:id="controlVisit" mnemonicParsing="false" prefHeight="47.0" prefWidth="203.0" styleClass="rich-blue" text="Crachá Visitantes" textFill="WHITE">
               <items>
-                <MenuItem fx:id="validaCracha" mnemonicParsing="false" text="Validar Crachá" />
+                <MenuItem fx:id="renovCracha" mnemonicParsing="false" onAction="#renovarV" text="Validar Crachá" />
                 <MenuItem fx:id="geraCracha" mnemonicParsing="false" onAction="#geraV" text="Gerar Crachá" />
               </items>
             </MenuButton>

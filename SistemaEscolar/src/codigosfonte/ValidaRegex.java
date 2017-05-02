@@ -54,7 +54,7 @@ public class ValidaRegex {
     
     public static Boolean validaNumeros(String n, StringBuilder msg){
         
-        String pattern = "[0-9][0-9]";
+        String pattern = "[0-9]+";
         Pattern test = Pattern.compile(pattern);
         Matcher matcher = test.matcher(n);
         

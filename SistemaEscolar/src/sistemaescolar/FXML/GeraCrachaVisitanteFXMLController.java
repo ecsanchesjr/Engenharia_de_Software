@@ -6,14 +6,18 @@
 package sistemaescolar.FXML;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import static sistemaescolar.Valida.validaCpf;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import static sistemaescolar.PessoaDAO.existsPessoaByCpf;
 
 /**
  * FXML Controller class
@@ -37,22 +41,45 @@ public class GeraCrachaVisitanteFXMLController implements Initializable {
     @FXML
     Button closeBtn;
     @FXML
-    Button geraBtn;
+    Button gerarBtn;
     @FXML
-    RadioButton cpfVerif;
+    Button btnCpf;
     
-    StringBuilder msg;
+    int hora;
+    int min;
     
     @FXML
-    public void verCpf(){
-        if(validaCpf(cpfText.getText(), msg)){
+    public void verCpf() throws SQLException{
+        StringBuilder msg = new StringBuilder("");
+        errLabel.setText("");
+        if(existsPessoaByCpf(cpfText.getText(), msg)){
             toggleMods(true);
-            errLabel.setText("CPF encontrado na Base de Dados.");
-            /* VERIFICAR NO BANCO */
-
+            errLabel.setText("CPF encontrado na Base de Dados."); 
+            GregorianCalendar gc = new GregorianCalendar();
+            hora = gc.get(Calendar.HOUR_OF_DAY);
+            min = gc.get(Calendar.MINUTE);
+            if(min <= 9){
+                hrInicioLabel.setText(""+hora+":0"+min);
+            }else{
+                hrInicioLabel.setText(""+hora+":"+min);
+            }
+            codeLabel2.setText(""+sistemaescolar.CrachaDAO.getValidadeCode()+"");
         }else{
             errLabel.setText(msg.toString());
         }
+    }
+    
+    @FXML
+    public void gerar() throws SQLException{
+        sistemaescolar.CrachaDAO.createNewCracha(cpfText.getText(), Integer.parseInt(codeLabel2.getText()), hora, min);
+        toggleMods(false);
+        errLabel.setText("Crachá de visitante gerado!");
+    }
+    
+    @FXML
+    public void close(){
+       Stage stage = (Stage) closeBtn.getScene().getWindow();
+       stage.close();
     }
     
     public void toggleMods(Boolean mode){
@@ -61,11 +88,15 @@ public class GeraCrachaVisitanteFXMLController implements Initializable {
         hrInicioLabel.setVisible(mode);
         codeLabel2.setVisible(mode);
         cpfText.setEditable(!mode);
-        cpfVerif.setDisable(mode);
+        btnCpf.setDisable(mode);
+        gerarBtn.setDisable(!mode);
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        errLabel.setText("Verificar se o CPF está na Base de Dados");
+        btnCpf.setShape(new Circle(1));
+        btnCpf.setMaxSize(2, 2);
         toggleMods(false);
     }    
     

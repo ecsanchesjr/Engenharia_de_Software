@@ -96,5 +96,4 @@ public class UserConexaoBD {
         int temp = Integer.parseInt(busca.getString("usuario_regescola"));
         return(temp);
     }
-   
 }
