@@ -18,7 +18,7 @@ public class UserConexaoBDNGTest {
     public void startConTest() throws SQLException{
         UserConexaoBD conUser = new UserConexaoBD();
         
-        conUser.setUsuario("elss");
+        conUser.setUsuario("root");
         conUser.setSenha("123");
         
         boolean c = conUser.startCon();

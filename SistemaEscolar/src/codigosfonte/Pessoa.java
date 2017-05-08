@@ -18,6 +18,8 @@ public class Pessoa {
     private int re;
     private int tipo;
     private String email;
+    
+    public static Pessoa per;
 
     public String getEmail() {
         return email;
@@ -26,8 +28,6 @@ public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    public static Pessoa per;
 
     public String getNome() {
         return nome;

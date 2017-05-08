@@ -1,12 +1,12 @@
 {
-  "pkgclss.excludelist" : [ ],
+  "pkgclss.excludelist" : [ "sistemaescolar.FXML" ],
   "preferences" : {
-    "JaCoCoverage.Editor.EnableCodeHighlighting" : "true",
+    "JaCoCoverage.Editor.EnableCodeHighlighting" : "false",
     "JaCoCoverage.Editor.EnableCodeHighlightingExtended" : "true",
     "JaCoCoverage.Html.AutoOpenReport" : "true",
     "JaCoCoverage.Html.EnableReport" : "true",
     "JaCoCoverage.JaCoCoWorkfiles.Rule" : "0",
     "JaCoCoverage.NbConsole.EnableReport" : "true",
-    "JaCoCoverage.Prj.OverrideGlobals" : "true"
+    "JaCoCoverage.Prj.OverrideGlobals" : "false"
   }
 }
