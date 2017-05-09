@@ -14,6 +14,9 @@ import static sistemaescolar.Valida.validaCpf;
 
 public class PessoaDAO {
     
+    /*
+        Retorna o Registro Escolar de uma pessoa a partir de um CPF passado. 
+    */
     public static int getPessoaRe(String cpf) throws SQLException{
         try{
             Connection con = ConexaoBD.getCon();
@@ -31,6 +34,9 @@ public class PessoaDAO {
         return 0;
     }
     
+    /*
+        Insere uma pessoa de tipo visitante no banco.
+    */
     public static void insertPessoaV(String nome, String cpf, String rg, int idade) throws SQLException{
         Pessoa p = new Pessoa();
         p.setP(nome, cpf, rg, idade);
@@ -45,6 +51,9 @@ public class PessoaDAO {
         }
     }
     
+    /*
+        Insere uma pessoa de tipo Aluno no banco.
+    */
     public static void insertPessoaA(String nome, String cpf, String rg, int idade, String email, String user, String pass) throws SQLException{
         Pessoa p = new Pessoa();
         p.setP(nome, cpf, rg, idade, user, email);
@@ -60,6 +69,9 @@ public class PessoaDAO {
         }
     }
     
+    /*
+        Insere uma pessoa do tipo Professor no banco.
+    */
     public static void insertPessoaP(String nome, String cpf, String rg, int idade, String user, String pass){
         Pessoa p = new Pessoa();
         p.setP(nome, cpf, rg, idade, user);
@@ -75,6 +87,9 @@ public class PessoaDAO {
         }
     }
     
+    /*
+        Insere uma pessoa do tipo Funcionário no Banco.
+    */
     public static void insertPessoaF(String nome, String cpf, String rg, int idade, String user, String pass){
         Pessoa p = new Pessoa();
         p.setP(nome, cpf, rg, idade, user);
@@ -90,6 +105,9 @@ public class PessoaDAO {
         }
     }
     
+    /*
+        Cria um usuário para a pessoa.
+    */
     public static void createPessoaUser(int re, String user, String pass) throws SQLException{
         try{
             Connection con = ConexaoBD.getCon();
@@ -101,7 +119,10 @@ public class PessoaDAO {
         }
     }
 
-        public static Boolean existsPessoaByCpf(String cpf, StringBuilder msg) throws SQLException{
+    /*
+        Verifica se existe a pessoa a partir de seu CPF, no caso, verifica se a pessoa existe no Banco.
+    */
+    public static Boolean existsPessoaByCpf(String cpf, StringBuilder msg) throws SQLException{
         if(validaCpf(cpf, msg)){
             Connection con = ConexaoBD.getCon();
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);

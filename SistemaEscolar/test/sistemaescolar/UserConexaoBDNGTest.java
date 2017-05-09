@@ -5,7 +5,6 @@
  */
 package sistemaescolar;
 
-import sistemaescolar.UserConexaoBD;
 import java.sql.SQLException;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;

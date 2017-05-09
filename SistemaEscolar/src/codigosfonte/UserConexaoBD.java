@@ -67,7 +67,9 @@ public class UserConexaoBD {
         }
     }
     
-        
+    /*
+        Retorna o tipo de usuário que está Logado no Sistema.
+    */    
     public static int getPessoaType(String usuario) throws SQLException{
             Connection con = ConexaoBD.getCon();
             Statement s;
@@ -78,6 +80,9 @@ public class UserConexaoBD {
             return(temp);
     }
     
+    /*
+        Retorna o nome da pessoa que está Logada no Sistema.
+    */
     public static String getPessoaName(String usuario) throws SQLException{
         Connection con = ConexaoBD.getCon();
         Statement s;
@@ -87,6 +92,9 @@ public class UserConexaoBD {
         return(busca.getString("pessoa_nome"));
     }
     
+    /*
+        Retorna o Registro Escolar da pessoa Logada.
+    */
     public static int getPessoaRe(String usuario) throws SQLException{
         Connection con = ConexaoBD.getCon();
         Statement s;

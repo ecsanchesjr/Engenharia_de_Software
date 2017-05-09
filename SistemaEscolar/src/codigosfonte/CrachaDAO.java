@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -19,6 +18,9 @@ import java.util.GregorianCalendar;
  */
 public class CrachaDAO {
         
+    /*
+        Retorna a quantidade de crachás existentes no banco, assim podendo criar um novo.
+    */
     public static int getValidadeCode() throws SQLException{
         Connection con = sistemaescolar.ConexaoBD.getCon();
         Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
@@ -31,6 +33,10 @@ public class CrachaDAO {
         return(nRows+1);
     }
     
+    /*
+        Cria um novo crachá com os dados de cpf, código(gerado a partir do método acima) e tempo no dia
+        O tempo é obtido do próprio relógio do computador executando o programa.
+    */
     public static void createNewCracha(String cpf, int code, int hr, int min) throws SQLException{
         GregorianCalendar gc = new GregorianCalendar();
         int dia = gc.get(GregorianCalendar.DAY_OF_MONTH);
@@ -49,6 +55,9 @@ public class CrachaDAO {
         }
     }
     
+    /*
+        Procura se existe um crachá com o código passado.
+    */
     public static Boolean searchCrachaByCode(int code, StringBuilder msg){
         try{
             Connection con = sistemaescolar.ConexaoBD.getCon();
@@ -69,6 +78,9 @@ public class CrachaDAO {
         }
     }
     
+    /*
+        Procura o Registro Escolar do visitante a partir do código do crachá passado.
+    */
     public static int getReByCrachaCode(int code){
         try{
             Connection con = sistemaescolar.ConexaoBD.getCon();
@@ -83,6 +95,9 @@ public class CrachaDAO {
         return 0;
     }
     
+    /*
+        Procura o CPF do Visitante a partir do código de crachá passado.
+    */
     public static String getCpfByCrachaCode(int code){
         try{
             Connection con = sistemaescolar.ConexaoBD.getCon();
@@ -97,6 +112,9 @@ public class CrachaDAO {
         return("WTF");
     }
     
+    /*
+        Procura o dia que foi gerado o crachá no banco de dados.
+    */
     public static Date getDateByCode(int code){
         try{
             Connection con = sistemaescolar.ConexaoBD.getCon();
@@ -112,6 +130,9 @@ public class CrachaDAO {
         return null;
     }
     
+    /*
+        Procura a hora que foi gerado a crachá no banco.
+    */
     public static Date getTimeByCode(int code){
         try{
             Connection con = sistemaescolar.ConexaoBD.getCon();
@@ -127,6 +148,10 @@ public class CrachaDAO {
         return null;
     }
     
+    /*
+        Função que faz um Update na célula do crachá verificado, alterando o tempo de validade dele.
+        Adiciona +6 horas de duração para o crachá.
+    */
     public static void renovCracha(int code){
         try{
             Connection con = sistemaescolar.ConexaoBD.getCon();

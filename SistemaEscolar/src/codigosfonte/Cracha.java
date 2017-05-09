@@ -18,6 +18,11 @@ import static sistemaescolar.CrachaDAO.getTimeByCode;
  */
 public class Cracha {
         
+    /*
+        Este método retorna, a partir do código do crachá, o estado do mesmo
+        Possíveis retornos:
+            "VÁLIDO" e "INVÁLIDO"
+    */
     public static String getStateCrachaByCode(int code) throws ParseException{
         Date inicio = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
