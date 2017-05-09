@@ -1,4 +1,4 @@
-package codigosfonte;
+package sistemaescolar;
 /*
     CLASSE PRINCIPAL
     Nessa classe estarão os controladores referentes à interface do sistema.
