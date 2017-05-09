@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemaescolar;
+package codigosfonte;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ import java.util.GregorianCalendar;
 public class CrachaDAO {
         
     public static int getValidadeCode() throws SQLException{
-        Connection con = sistemaescolar.ConexaoBD.getCon();
+        Connection con = codigosfonte.ConexaoBD.getCon();
         Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
         int nRows = 0;
         ResultSet busca = s.executeQuery("select * from validade");
@@ -36,10 +36,10 @@ public class CrachaDAO {
         int dia = gc.get(GregorianCalendar.DAY_OF_MONTH);
         int mes = gc.get(GregorianCalendar.MONTH) + 1;
         int ano = gc.get(GregorianCalendar.YEAR);
-        int re = sistemaescolar.PessoaDAO.getPessoaRe(cpf);
+        int re = codigosfonte.PessoaDAO.getPessoaRe(cpf);
         
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement();
             
             s.executeUpdate("INSERT INTO Validade(validade_regescola, validade_code, validade_inicio, validade_dia) VALUES('"+re+"', '"+code+"', '"+hr+":"+min+"', '"+dia+"/"+mes+"/"+ano+"')");
@@ -51,7 +51,7 @@ public class CrachaDAO {
     
     public static Boolean searchCrachaByCode(int code, StringBuilder msg){
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement();
             
             ResultSet busca = s.executeQuery("SELECT p.pessoa_cpf, v.validade_regescola FROM Pessoa p, validade v WHERE v.validade_code ='"+code+"' AND v.validade_regescola = p.pessoa_regescola");
@@ -71,7 +71,7 @@ public class CrachaDAO {
     
     public static int getReByCrachaCode(int code){
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             ResultSet busca = s.executeQuery("SELECT validade_regescola FROM Validade WHERE validade_code ='"+code+"';");
             con.close();
@@ -85,7 +85,7 @@ public class CrachaDAO {
     
     public static String getCpfByCrachaCode(int code){
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             ResultSet busca = s.executeQuery("SELECT pessoa_cpf FROM Validade, Pessoa WHERE validade_code ='"+code+"' AND validade_regescola = pessoa_regescola;");
             con.close();
@@ -99,7 +99,7 @@ public class CrachaDAO {
     
     public static Date getDateByCode(int code){
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             
             ResultSet busca = s.executeQuery("SELECT validade_dia FROM Validade WHERE validade_code = '"+code+"';");
@@ -114,7 +114,7 @@ public class CrachaDAO {
     
     public static Date getTimeByCode(int code){
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             
             ResultSet busca = s.executeQuery("SELECT validade_inicio FROM Validade WHERE validade_code = '"+code+"';");
@@ -129,7 +129,7 @@ public class CrachaDAO {
     
     public static void renovCracha(int code){
         try{
-            Connection con = sistemaescolar.ConexaoBD.getCon();
+            Connection con = codigosfonte.ConexaoBD.getCon();
             Statement s = con.createStatement();
             
             GregorianCalendar gc = new GregorianCalendar();

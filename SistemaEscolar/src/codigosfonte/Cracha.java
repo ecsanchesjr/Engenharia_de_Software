@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemaescolar;
+package codigosfonte;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import static sistemaescolar.CrachaDAO.getDateByCode;
-import static sistemaescolar.CrachaDAO.getTimeByCode;
+import static codigosfonte.CrachaDAO.getDateByCode;
+import static codigosfonte.CrachaDAO.getTimeByCode;
 
 /**
  *
@@ -20,17 +20,18 @@ public class Cracha {
         
     public static String getStateCrachaByCode(int code) throws ParseException{
         Date inicio = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
         GregorianCalendar gc = new GregorianCalendar();
         
         int dia = gc.get(GregorianCalendar.DAY_OF_MONTH);
         int mes = gc.get(GregorianCalendar.MONTH)+1;
-        int ano = +gc.get(GregorianCalendar.YEAR);
+        int ano = gc.get(GregorianCalendar.YEAR);
         
-        Date hoje = sdf.parse(""+dia+"-"+mes+"-"+ano);
+        Date hoje = sdf.parse(""+ano+"-"+dia+"-"+mes);
+        
         inicio = getDateByCode(code);
-
-        if(inicio.equals(hoje)){
+        
+        if(inicio.toString().equals(sdf.format(hoje))){
             Date inicioHr = new Date();
             
             SimpleDateFormat sdfHr = new SimpleDateFormat("HH:mm");

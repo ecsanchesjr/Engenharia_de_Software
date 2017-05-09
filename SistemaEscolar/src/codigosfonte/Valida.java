@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemaescolar;
+package codigosfonte;
 
-import static sistemaescolar.ValidaRegex.*;
-import static sistemaescolar.Constantes_Tipos.*;
+import static codigosfonte.ValidaRegex.*;
+import static codigosfonte.Constantes_Tipos.*;
 
 public final class Valida {
        

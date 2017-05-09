@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import static sistemaescolar.CrachaDAO.searchCrachaByCode;
+import static codigosfonte.CrachaDAO.searchCrachaByCode;
 
 /**
  * FXML Controller class
@@ -60,11 +60,11 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
             if(searchCrachaByCode(code, msg)){
             errLabel.setText(msg.toString());
             gerarBtn.setVisible(false);
-            reTextLabel.setText(" "+sistemaescolar.CrachaDAO.getReByCrachaCode(code)+"");
-            cpfTextLabel.setText(" "+sistemaescolar.CrachaDAO.getCpfByCrachaCode(code));
-            stateTextLabel.setText(" "+sistemaescolar.Cracha.getStateCrachaByCode(code));
+            reTextLabel.setText(" "+codigosfonte.CrachaDAO.getReByCrachaCode(code)+"");
+            cpfTextLabel.setText(" "+codigosfonte.CrachaDAO.getCpfByCrachaCode(code));
+            stateTextLabel.setText(" "+codigosfonte.Cracha.getStateCrachaByCode(code));
             toggleModes(true);
-            if(sistemaescolar.Cracha.getStateCrachaByCode(code).equals("VÁLIDO")){
+            if(codigosfonte.Cracha.getStateCrachaByCode(code).equals("VÁLIDO")){
                 renovBtn.setDisable(true);
             }
         }else{
@@ -84,7 +84,7 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
     
     @FXML
     public void renovar(){
-        sistemaescolar.CrachaDAO.renovCracha(code);
+        codigosfonte.CrachaDAO.renovCracha(code);
         errLabel.setStyle("-fx-font-size: 20px");
         errLabel.setText("Crachá de visitante renovado por mais 6 horas.");
         renovBtn.setDisable(true);
@@ -92,7 +92,7 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
     
     @FXML 
     public void gerar() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showGeraCrachaV();
+        codigosfonte.ControleUI.getInstance().showGeraCrachaV();
     }
     
     public void toggleModes(Boolean mode){

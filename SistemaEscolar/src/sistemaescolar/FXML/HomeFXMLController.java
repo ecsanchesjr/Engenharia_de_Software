@@ -15,8 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-import static sistemaescolar.Constantes_Tipos.*;
-import sistemaescolar.Pessoa;
+import static codigosfonte.Constantes_Tipos.*;
+import codigosfonte.Pessoa;
 
 public class HomeFXMLController implements Initializable {
 
@@ -46,22 +46,22 @@ public class HomeFXMLController implements Initializable {
        
     @FXML
     public void getCadV() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showRegisterV();
+        codigosfonte.ControleUI.getInstance().showRegisterV();
     }
     
     @FXML
     public void getCadF() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showRegisterF();
+        codigosfonte.ControleUI.getInstance().showRegisterF();
     }
     
     @FXML
     public void getCadP() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showRegisterP();
+        codigosfonte.ControleUI.getInstance().showRegisterP();
     }
     
     @FXML
     public void getCadA() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showRegisterA();
+        codigosfonte.ControleUI.getInstance().showRegisterA();
     }
     
     @FXML
@@ -72,12 +72,12 @@ public class HomeFXMLController implements Initializable {
     
     @FXML
     public void renovarV() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showRenovCrachaV();
+        codigosfonte.ControleUI.getInstance().showRenovCrachaV();
     }
     
     @FXML
     public void geraV() throws IOException{
-        sistemaescolar.ControleUI.getInstance().showGeraCrachaV();
+        codigosfonte.ControleUI.getInstance().showGeraCrachaV();
     }
     
     @FXML

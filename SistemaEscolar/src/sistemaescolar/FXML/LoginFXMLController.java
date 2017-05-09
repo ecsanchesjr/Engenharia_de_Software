@@ -17,9 +17,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import sistemaescolar.Pessoa;
-import sistemaescolar.UserConexaoBD;
-import sistemaescolar.Valida;
+import codigosfonte.Pessoa;
+import codigosfonte.UserConexaoBD;
+import codigosfonte.Valida;
 import java.io.IOException;
 
 
@@ -48,7 +48,7 @@ public class LoginFXMLController implements Initializable {
         
         if(Valida.validaLogin(Login.getText(), Password.getText(), msg)) { //Chama o método de teste para verificar se algum campo está vazio
             try{
-                sistemaescolar.UserConexaoBD conUser = new sistemaescolar.UserConexaoBD();
+                codigosfonte.UserConexaoBD conUser = new codigosfonte.UserConexaoBD();
 
                 conUser.setUsuario(Login.getText().toLowerCase());
                 conUser.setSenha(Password.getText());
@@ -63,7 +63,7 @@ public class LoginFXMLController implements Initializable {
                     Pessoa.getInstance().setNome(UserConexaoBD.getPessoaName(Pessoa.getInstance().getUser()));
                     Pessoa.getInstance().setRe(UserConexaoBD.getPessoaRe(Pessoa.getInstance().getUser()));
                    
-                    sistemaescolar.ControleUI.getInstance().showHome();
+                    codigosfonte.ControleUI.getInstance().showHome();
                     Login.setText("");
                     Password.setText("");
                 }

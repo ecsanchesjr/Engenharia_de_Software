@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemaescolar;
+package codigosfonte;
 
 import java.sql.*;
 
@@ -28,7 +28,7 @@ public class ConexaoBD {
         try{
             String url = "jdbc:postgresql://localhost:5432/Escola_DB";
             String user = "postgres";
-            String password = "132333";
+            String password = "123456";
             
             Class.forName("org.postgresql.Driver"); //Driver de conexão com o Banco.
             

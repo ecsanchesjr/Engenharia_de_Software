@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import static sistemaescolar.PessoaDAO.existsPessoaByCpf;
+import static codigosfonte.PessoaDAO.existsPessoaByCpf;
 
 /**
  * FXML Controller class
@@ -63,7 +63,7 @@ public class GeraCrachaVisitanteFXMLController implements Initializable {
             }else{
                 hrInicioLabel.setText(""+hora+":"+min);
             }
-            codeLabel2.setText(""+sistemaescolar.CrachaDAO.getValidadeCode()+"");
+            codeLabel2.setText(""+codigosfonte.CrachaDAO.getValidadeCode()+"");
         }else{
             errLabel.setText(msg.toString());
         }
@@ -71,7 +71,7 @@ public class GeraCrachaVisitanteFXMLController implements Initializable {
     
     @FXML
     public void gerar() throws SQLException{
-        sistemaescolar.CrachaDAO.createNewCracha(cpfText.getText(), Integer.parseInt(codeLabel2.getText()), hora, min);
+        codigosfonte.CrachaDAO.createNewCracha(cpfText.getText(), Integer.parseInt(codeLabel2.getText()), hora, min);
         toggleMods(false);
         errLabel.setText("Crachá de visitante gerado!");
     }

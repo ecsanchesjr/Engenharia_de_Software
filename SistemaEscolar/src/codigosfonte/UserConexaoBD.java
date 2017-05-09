@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemaescolar;
+package codigosfonte;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static sistemaescolar.ConexaoBD.startConection;
+import static codigosfonte.ConexaoBD.startConection;
 
 /*
     Classe com os métodos de conexão do Usuário ao Banco

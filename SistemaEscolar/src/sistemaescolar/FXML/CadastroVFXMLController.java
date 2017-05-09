@@ -14,9 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import static sistemaescolar.Constantes_Tipos.TIPO_VISITANTE;
-import static sistemaescolar.PessoaDAO.insertPessoaV;
-import static sistemaescolar.Valida.validaCadastroV;
+import static codigosfonte.Constantes_Tipos.TIPO_VISITANTE;
+import static codigosfonte.PessoaDAO.insertPessoaV;
+import static codigosfonte.Valida.validaCadastroV;
 
 /**
  * FXML Controller class

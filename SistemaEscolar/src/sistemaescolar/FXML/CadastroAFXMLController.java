@@ -15,9 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import static sistemaescolar.Constantes_Tipos.*;
-import static sistemaescolar.PessoaDAO.insertPessoaA;
-import static sistemaescolar.Valida.validaCadastroA;
+import static codigosfonte.Constantes_Tipos.*;
+import static codigosfonte.PessoaDAO.insertPessoaA;
+import static codigosfonte.Valida.validaCadastroA;
 
 /**
  * FXML Controller class
