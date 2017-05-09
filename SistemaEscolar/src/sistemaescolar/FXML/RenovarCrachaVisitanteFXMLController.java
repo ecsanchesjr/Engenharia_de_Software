@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import static codigosfonte.CrachaDAO.searchCrachaByCode;
+import static sistemaescolar.CrachaDAO.searchCrachaByCode;
 
 /**
  * FXML Controller class
@@ -60,14 +60,18 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
             if(searchCrachaByCode(code, msg)){
             errLabel.setText(msg.toString());
             gerarBtn.setVisible(false);
-            reTextLabel.setText(" "+codigosfonte.CrachaDAO.getReByCrachaCode(code)+"");
-            cpfTextLabel.setText(" "+codigosfonte.CrachaDAO.getCpfByCrachaCode(code));
-            stateTextLabel.setText(" "+codigosfonte.Cracha.getStateCrachaByCode(code));
+            reTextLabel.setText(" "+sistemaescolar.CrachaDAO.getReByCrachaCode(code)+"");
+            cpfTextLabel.setText(" "+sistemaescolar.CrachaDAO.getCpfByCrachaCode(code));
+            stateTextLabel.setText(" "+sistemaescolar.Cracha.getStateCrachaByCode(code));
             toggleModes(true);
-            if(codigosfonte.Cracha.getStateCrachaByCode(code).equals("VÁLIDO")){
+            if(sistemaescolar.Cracha.getStateCrachaByCode(code).equals("VÁLIDO")){
                 renovBtn.setDisable(true);
             }
         }else{
+            cpfLabel.setVisible(false);
+            reLabel.setVisible(false);
+            cpfTextLabel.setVisible(false);
+            reTextLabel.setVisible(false);
             errLabel.setText(msg.toString());
             gerarBtn.setVisible(true);
         }
@@ -84,7 +88,7 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
     
     @FXML
     public void renovar(){
-        codigosfonte.CrachaDAO.renovCracha(code);
+        sistemaescolar.CrachaDAO.renovCracha(code);
         errLabel.setStyle("-fx-font-size: 20px");
         errLabel.setText("Crachá de visitante renovado por mais 6 horas.");
         renovBtn.setDisable(true);
@@ -92,7 +96,7 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
     
     @FXML 
     public void gerar() throws IOException{
-        codigosfonte.ControleUI.getInstance().showGeraCrachaV();
+        sistemaescolar.ControleUI.getInstance().showGeraCrachaV();
     }
     
     public void toggleModes(Boolean mode){

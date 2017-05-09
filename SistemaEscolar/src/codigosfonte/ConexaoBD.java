@@ -28,7 +28,7 @@ public class ConexaoBD {
         try{
             String url = "jdbc:postgresql://localhost:5432/Escola_DB";
             String user = "postgres";
-            String password = "123456";
+            String password = "132333";
             
             Class.forName("org.postgresql.Driver"); //Driver de conexão com o Banco.
             

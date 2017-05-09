@@ -20,18 +20,21 @@ public class Cracha {
         
     public static String getStateCrachaByCode(int code) throws ParseException{
         Date inicio = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         GregorianCalendar gc = new GregorianCalendar();
         
         int dia = gc.get(GregorianCalendar.DAY_OF_MONTH);
         int mes = gc.get(GregorianCalendar.MONTH)+1;
         int ano = gc.get(GregorianCalendar.YEAR);
         
-        Date hoje = sdf.parse(""+ano+"-"+dia+"-"+mes);
+        Date hoje = sdf.parse(""+dia+"-"+mes+"-"+ano);
         
         inicio = getDateByCode(code);
         
-        if(inicio.toString().equals(sdf.format(hoje))){
+        String ini = sdf.format(inicio);
+        String hj = sdf.format(hoje);
+
+        if(ini.equals(hj)){
             Date inicioHr = new Date();
             
             SimpleDateFormat sdfHr = new SimpleDateFormat("HH:mm");
