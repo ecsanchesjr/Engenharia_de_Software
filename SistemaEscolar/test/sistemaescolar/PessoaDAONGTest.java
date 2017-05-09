@@ -5,6 +5,7 @@
  */
 package sistemaescolar;
 
+import sistemaescolar.PessoaDAO;
 import sistemaescolar.ConexaoBD;
 import java.sql.Connection;
 import java.sql.ResultSet;

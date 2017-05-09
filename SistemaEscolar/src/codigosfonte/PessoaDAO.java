@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import sistemaescolar.ConexaoBD;
+import sistemaescolar.Pessoa;
 import static sistemaescolar.Constantes_Tipos.*;
 import static sistemaescolar.Valida.validaCpf;
 
