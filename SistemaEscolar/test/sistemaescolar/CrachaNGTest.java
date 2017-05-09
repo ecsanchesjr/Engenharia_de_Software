@@ -17,7 +17,7 @@ public class CrachaNGTest {
     @Test
     public void testGetStateCrachaByCode() throws ParseException{
         int code = 1;
-        String expResult = "INVÁLIDO";
+        String expResult = "VÁLIDO";
         String result = Cracha.getStateCrachaByCode(code);
         assertEquals(result, expResult);
     }
@@ -25,7 +25,7 @@ public class CrachaNGTest {
     @Test
     public void testGetStateCrachabyCode2() throws ParseException{
         int code = 2;
-        String expResult = "VÁLIDO";
+        String expResult = "INVÁLIDO";
         String result = Cracha.getStateCrachaByCode(code);
         assertEquals(result, expResult);
     }

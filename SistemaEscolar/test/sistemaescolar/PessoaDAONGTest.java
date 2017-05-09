@@ -40,6 +40,7 @@ public class PessoaDAONGTest {
         Statement s = con.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM Pessoa WHERE pessoa_cpf = '666.666.666-66'");
         boolean control = (rs!=null);
+        PessoaDAO.deletePessoaTest();
         assertTrue(control);
     }   
     
@@ -50,6 +51,7 @@ public class PessoaDAONGTest {
         Statement s = con.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM Pessoa WHERE pessoa_cpf = '555.555.555-55'");
         boolean control = (rs!=null);
+        PessoaDAO.deletePessoaTest();
         assertTrue(control);
     }   
     
@@ -60,6 +62,7 @@ public class PessoaDAONGTest {
         Statement s = con.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM Pessoa WHERE pessoa_cpf = '555.555.563-55'");
         boolean control = (rs!=null);
+        PessoaDAO.deletePessoaTest();
         assertTrue(control);
     } 
     
@@ -70,6 +73,7 @@ public class PessoaDAONGTest {
         Statement s = con.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM Pessoa WHERE pessoa_cpf = '555.555.555-35'");
         boolean control = (rs!=null);
+        PessoaDAO.deletePessoaTest();
         assertTrue(control);
     } 
     
@@ -85,10 +89,10 @@ public class PessoaDAONGTest {
         assertFalse(PessoaDAO.existsPessoaByCpf("946.235.756-75",msg));
     }
     
-    @Test
+    @Test(priority=2)
     public void existsPessoaByCpfTest3() throws SQLException{
         StringBuilder msg = new StringBuilder("");
-        assertTrue(PessoaDAO.existsPessoaByCpf("666.666.666-99",msg));
+        assertTrue(PessoaDAO.existsPessoaByCpf("333.333.333-33",msg));
     }
     
     @Test

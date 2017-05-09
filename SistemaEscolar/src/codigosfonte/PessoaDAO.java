@@ -147,4 +147,11 @@ public class PessoaDAO {
         }
     }
     
+    public static void deletePessoaTest() throws SQLException{
+        Connection con = ConexaoBD.getCon();
+        Statement s = con.createStatement();
+        
+        s.executeUpdate("DELETE FROM pessoa WHERE pessoa_cpf != '333.333.333-33' AND pessoa_cpf != '111.111.111-11'");
+    }
+    
 }
