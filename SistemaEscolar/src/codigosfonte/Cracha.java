@@ -9,8 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import static codigosfonte.CrachaDAO.getDateByCode;
-import static codigosfonte.CrachaDAO.getTimeByCode;
+import static sistemaescolar.CrachaDAO.getDateByCode;
+import static sistemaescolar.CrachaDAO.getTimeByCode;
 
 /**
  *

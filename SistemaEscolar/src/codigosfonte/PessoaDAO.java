@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static codigosfonte.Constantes_Tipos.*;
-import static codigosfonte.Valida.validaCpf;
+import static sistemaescolar.Constantes_Tipos.*;
+import static sistemaescolar.Valida.validaCpf;
 
 public class PessoaDAO {
     

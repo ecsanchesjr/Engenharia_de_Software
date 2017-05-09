@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static codigosfonte.ConexaoBD.startConection;
+import static sistemaescolar.ConexaoBD.startConection;
 
 /*
     Classe com os métodos de conexão do Usuário ao Banco

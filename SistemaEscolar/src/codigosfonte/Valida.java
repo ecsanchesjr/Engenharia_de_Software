@@ -5,8 +5,8 @@
  */
 package sistemaescolar;
 
-import static codigosfonte.ValidaRegex.*;
-import static codigosfonte.Constantes_Tipos.*;
+import static sistemaescolar.ValidaRegex.*;
+import static sistemaescolar.Constantes_Tipos.*;
 
 public final class Valida {
        
