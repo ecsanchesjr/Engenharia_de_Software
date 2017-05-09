@@ -54,7 +54,7 @@ public class Cracha {
             if(interval <= 21600000){
                 return("VÁLIDO");
             }else{
-                return("INVALIDO");
+                return("INVÁLIDO");
             }
         }else{
             return("INVÁLIDO");
