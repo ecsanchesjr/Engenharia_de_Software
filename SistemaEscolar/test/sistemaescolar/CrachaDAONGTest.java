@@ -5,7 +5,10 @@
  */
 package sistemaescolar;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 import static sistemaescolar.CrachaDAO.getCpfByCrachaCode;
@@ -24,14 +27,22 @@ public class CrachaDAONGTest {
     public CrachaDAONGTest() {
     }
     
-    @Test(priority=0)
+    @Test(priority=-1)
     public void getValidadeCodeTest() throws SQLException {
-        assertEquals(8,getValidadeCode());
+        assertEquals(4,getValidadeCode());
     }
     
     @Test(priority=1)
     public void createNewCrachaTest() throws Exception {
         CrachaDAO.createNewCracha("333.333.333-33", 35, 21, 56);
+        Connection con = ConexaoBD.getCon();
+        Statement s = con.createStatement();
+        ResultSet rs = s.executeQuery("SELECT * FROM VALIDADE where Validade_code = '35'");
+        boolean control = (rs!=null);
+        con = ConexaoBD.getCon();
+        s = con.createStatement();
+        s.executeUpdate("DELETE FROM Validade WHERE Validade_code = '35'");
+        assertTrue(control);
     }
     
     @Test
