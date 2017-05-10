@@ -5,9 +5,7 @@
  */
 package sistemaescolar;
 
-import sistemaescolar.CrachaDAO;
 import java.sql.SQLException;
-import java.util.Date;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 import static sistemaescolar.CrachaDAO.getCpfByCrachaCode;
@@ -26,12 +24,12 @@ public class CrachaDAONGTest {
     public CrachaDAONGTest() {
     }
     
-    @Test
+    @Test(priority=0)
     public void getValidadeCodeTest() throws SQLException {
-        assertEquals(3,getValidadeCode());
+        assertEquals(8,getValidadeCode());
     }
     
-    @Test
+    @Test(priority=1)
     public void createNewCrachaTest() throws Exception {
         CrachaDAO.createNewCracha("333.333.333-33", 35, 21, 56);
     }
@@ -50,7 +48,7 @@ public class CrachaDAONGTest {
     
     @Test
     public void getReByCrachaCodeTest() {
-        assertEquals(20,getReByCrachaCode(2));
+        assertEquals(38,getReByCrachaCode(2));
     }
     
     @Test
@@ -61,7 +59,7 @@ public class CrachaDAONGTest {
         
     @Test
     public void getCpfByCrachaCodeTest() {
-        assertEquals("111.111.111-11",getCpfByCrachaCode(2));
+        assertEquals("333.333.333-33",getCpfByCrachaCode(2));
     }
     
     @Test
@@ -71,7 +69,7 @@ public class CrachaDAONGTest {
     
     @Test
     public void getDateByCodeTest() {
-        assertEquals("2017-05-09",getDateByCode(2).toString());
+        assertEquals("2017-05-03",getDateByCode(2).toString());
     }
   
     @Test
@@ -81,7 +79,7 @@ public class CrachaDAONGTest {
     
     @Test
     public void getTimeByCodeTest() {
-        assertEquals("11:08:00",getTimeByCode(2).toString());
+        assertEquals("18:50:00",getTimeByCode(2).toString());
     }
     
     @Test
