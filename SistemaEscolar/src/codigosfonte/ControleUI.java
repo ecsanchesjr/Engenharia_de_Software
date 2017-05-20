@@ -25,6 +25,8 @@ public class ControleUI extends Application {
     private static Parent registerFFXML;
     private static Parent geraCrachaVFXML;
     private static Parent renovCrachaVFXML;
+    private static Parent creditsFXML;
+    private static Parent usarCantinaFXML;
    
     //SCENES
     private static Scene loginScene;
@@ -35,6 +37,8 @@ public class ControleUI extends Application {
     private static Scene registerFScene;
     private static Scene geraCrachaVScene;
     private static Scene renovCrachaVScene;
+    private static Scene creditsScene;
+    private static Scene usarCantinaScene;
     
     
     private static ControleUI INSTANCE = null;
@@ -114,6 +118,20 @@ public class ControleUI extends Application {
         renovCrachaVFXML = FXMLLoader.load(getClass().getResource("FXML/RenovarCrachaVisitanteFXML.fxml"));
         renovCrachaVScene = new Scene(renovCrachaVFXML);
         secondStage.setScene(renovCrachaVScene);
+        secondStage.show();
+    }
+    
+    public void showCredits() throws IOException{
+        creditsFXML = FXMLLoader.load(getClass().getResource("FXML/CreditoFXML.fxml"));
+        creditsScene = new Scene(creditsFXML);
+        secondStage.setScene(creditsScene);
+        secondStage.show();
+    }
+    
+    public void showUsarCantina() throws IOException{
+        usarCantinaFXML = FXMLLoader.load(getClass().getResource("FXML/UsarCantinaFXML.fxml"));
+        usarCantinaScene = new Scene(usarCantinaFXML);
+        secondStage.setScene(usarCantinaScene);
         secondStage.show();
     }
     

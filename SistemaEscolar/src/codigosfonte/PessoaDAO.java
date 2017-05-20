@@ -9,12 +9,91 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import sistemaescolar.ConexaoBD;
-import sistemaescolar.Pessoa;
 import static sistemaescolar.Constantes_Tipos.*;
 import static sistemaescolar.Valida.validaCpf;
 
 public class PessoaDAO {
+    
+    public static void togglePermissionState(int re){
+        try{
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement();
+            s.executeUpdate("UPDATE Pessoa SET pessoa_permissao = '1' WHERE pessoa_regescola = '"+re+"'");
+            con.close();
+        }catch(SQLException e){
+            System.out.println("Erro UpdatePermission: " +e.toString());
+        }
+    }
+    
+    /*
+        Retorna se o aluno tem, ou não, permissão de usar a cantina
+    */
+    public static Boolean getPermissionState(int re){
+        try{
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ResultSet busca = s.executeQuery("SELECT pessoa_permissao FROM Pessoa WHERE pessoa_regescola='" +re+ "'");
+            busca.first();
+            if(Integer.parseInt(busca.getString("pessoa_permissao")) == 1){
+                return(true);
+            }
+        }catch(SQLException e){
+            System.out.println("Erro getPermissao: " +e.toString());
+        }
+        return(false);
+    }
+    
+    /*
+        Aumenta a quantidade de creditos que a pessoa tem a partir de seu RE
+    */
+    public static void insertPessoaCreditsByRe(int re, float valorN, float valorP){
+        try{
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement();
+            float newValor = valorN + valorP;
+            s.executeUpdate("UPDATE Pessoa SET pessoa_credito = '"+newValor+"' WHERE pessoa_regescola = '"+re+"'");
+            con.close();
+        }catch(SQLException e){
+            System.out.println("Erro UpdateCredits: " +e.toString());
+        }
+    }
+    
+    /*
+        Retira dos créditos da pessoa, pelo Re da mesma, o total utilizado na cantina.
+    */
+    public static void reducePessoaCreditsByRe(int re, float valorP, float valorC){
+        try{
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement();
+            float newValor = valorP - valorC;
+            s.executeUpdate("UPDATE Pessoa SET pessoa_credito = '"+newValor+"' WHERE pessoa_regescola = '"+re+"'");
+            con.close();
+        }catch(SQLException e){
+            System.out.println("Erro UpdateCredits: " +e.toString());
+        }
+    }
+    
+    /*
+        Retorna a quantidade de créditos que a pessoa tem para utilizar na cantina.
+    */
+    public static float getPessoaCreditsByRe(int re){
+        try{
+            Connection con = ConexaoBD.getCon();
+            Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            ResultSet busca = s.executeQuery("SELECT pessoa_credito FROM Pessoa WHERE pessoa_regescola='" +re+ "'");
+            busca.first();
+            if(!busca.next()){
+                return (0);
+            }
+            return(Float.parseFloat(busca.getString("pessoa_credito")));
+        }catch(SQLException e){
+            System.out.println("Erro getCredits: " +e.toString());
+        }
+        catch(NumberFormatException ex){
+            System.out.println("EErro de Crédito");
+        }
+        return 0;
+    }
     
     /*
         Retorna o Registro Escolar de uma pessoa a partir de um CPF passado. 

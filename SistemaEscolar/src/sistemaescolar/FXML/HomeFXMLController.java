@@ -17,6 +17,7 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import static sistemaescolar.Constantes_Tipos.*;
 import sistemaescolar.Pessoa;
+import sistemaescolar.PessoaDAO;
 
 public class HomeFXMLController implements Initializable {
 
@@ -37,11 +38,19 @@ public class HomeFXMLController implements Initializable {
     @FXML
     Button closeBtn;
     @FXML
+    Button permissaoBtn;
+    @FXML
+    Button useCantinaBtn;
+    @FXML
+    Button creditsBtn;
+    @FXML
     MenuItem validaCracha;
     @FXML
     MenuItem geraCracha;
     @FXML
     MenuButton controlVisit;
+    @FXML
+    Label permissaoLabel;
 
        
     @FXML
@@ -80,6 +89,23 @@ public class HomeFXMLController implements Initializable {
         sistemaescolar.ControleUI.getInstance().showGeraCrachaV();
     }
     
+    @FXML 
+    public void showCredits() throws IOException{
+        sistemaescolar.ControleUI.getInstance().showCredits();
+    }
+    
+    @FXML
+    public void showUtilizarCantina() throws IOException{
+        sistemaescolar.ControleUI.getInstance().showUsarCantina();
+    }
+    
+    @FXML
+    public void permissaoAluno(){
+        permissaoLabel.setText("E-mail de solicitação de autorização enviado.");
+        PessoaDAO.togglePermissionState(Pessoa.getInstance().getRe());
+        permissaoBtn.setDisable(true);
+    }
+    
     @FXML
     public void toggleModes(Boolean mode){
         cadVBtn.setVisible(mode);
@@ -92,9 +118,22 @@ public class HomeFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         int t = Pessoa.getInstance().getTipo();
+        int re = Pessoa.getInstance().getRe();
+        nameLabel.setText(Pessoa.getInstance().getNome());
+        reLabel.setText(""+re+"");
+        permissaoBtn.setVisible(false);
         switch (t) {
             case TIPO_ALUNO:
                 typeLabel.setText("Usuário Aluno");
+                if(PessoaDAO.getPermissionState(re)){
+                    permissaoBtn.setVisible(false);
+                    creditsBtn.setDisable(false);
+                    useCantinaBtn.setVisible(true);
+                }else{
+                    permissaoBtn.setVisible(true);
+                    creditsBtn.setDisable(true);
+                    useCantinaBtn.setVisible(false);
+                }
                 break;
             case TIPO_FUNCIONARIO:
                 typeLabel.setText("Usuário Funcionário");
@@ -108,8 +147,6 @@ public class HomeFXMLController implements Initializable {
             default:
                 break;
         }
-        nameLabel.setText(Pessoa.getInstance().getNome());
-        reLabel.setText(""+Pessoa.getInstance().getRe()+"");
 
         if(t != TIPO_DIRETOR && t != TIPO_FUNCIONARIO){
             toggleModes(false);

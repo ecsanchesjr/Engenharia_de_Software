@@ -30,7 +30,7 @@ public class PessoaDAONGTest {
     public void getPessoaReTest() throws SQLException{
         Connection con = ConexaoBD.getCon();
         Statement s = con.createStatement();
-        assertEquals(20,pessoadao.getPessoaRe("111.111.111-11"));
+        assertEquals(20,PessoaDAO.getPessoaRe("111.111.111-11"));
     }   
     
     @Test

@@ -72,6 +72,8 @@ public class RenovarCrachaVisitanteFXMLController implements Initializable {
             reLabel.setVisible(false);
             cpfTextLabel.setVisible(false);
             reTextLabel.setVisible(false);
+            stateLabel.setVisible(false);
+            stateTextLabel.setVisible(false);
             errLabel.setText(msg.toString());
             gerarBtn.setVisible(true);
         }

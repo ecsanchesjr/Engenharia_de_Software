@@ -59,5 +59,9 @@
          </children>
       </AnchorPane>
       <Button fx:id="closeBtn" layoutX="809.0" layoutY="670.0" mnemonicParsing="false" onAction="#close" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Fechar Sistema" textFill="WHITE" />
+      <Button fx:id="creditsBtn" layoutX="19.0" layoutY="256.0" mnemonicParsing="false" onAction="#showCredits" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Crédito na Cantina" textFill="WHITE" />
+      <Button fx:id="useCantinaBtn" layoutX="19.0" layoutY="338.0" mnemonicParsing="false" onAction="#showUtilizarCantina" prefHeight="39.0" prefWidth="180.0" styleClass="rich-blue" text="Utilizar Cantina" textFill="WHITE" />
+      <Button fx:id="permissaoBtn" layoutX="19.0" layoutY="338.0" mnemonicParsing="false" onAction="#permissaoAluno" prefHeight="39.0" prefWidth="213.0" styleClass="rich-blue" text="Autorizar uso de Cantina" textFill="WHITE" />
+      <Label fx:id="permissaoLabel" layoutX="19.0" layoutY="393.0" prefHeight="89.0" prefWidth="213.0" styleClass="font-labelInfos" textFill="WHITE" wrapText="true" />
    </children>
 </AnchorPane>

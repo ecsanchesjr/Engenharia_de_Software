@@ -36,4 +36,20 @@ public class UserConexaoBDNGTest {
         conUser.closeCon();
         conUser.getCon();
     }
+    
+    @Test
+    public void getPessoaTypeTest() throws SQLException{
+        assertEquals(1, UserConexaoBD.getPessoaType("root"));
+        
+    }
+    
+    @Test
+    public void getPessoaNameTest() throws SQLException{
+        assertEquals("Robson Diretor", UserConexaoBD.getPessoaName("root"));
+    }
+    
+    @Test
+    public void getPessoaReTest() throws SQLException{
+        assertEquals(20, UserConexaoBD.getPessoaRe("root"));
+    }
 }

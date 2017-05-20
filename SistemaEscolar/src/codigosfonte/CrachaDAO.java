@@ -73,7 +73,7 @@ public class CrachaDAO {
                 return(false);
             }
         }catch(SQLException e){
-            System.out.println("Erro ao procurar crachá: "+e.toString());
+            //System.out.println("Erro ao procurar crachá: "+e.toString());
             return(false);
         }
     }
@@ -90,7 +90,7 @@ public class CrachaDAO {
             busca.first();
             return(busca.getInt("validade_regescola"));
         }catch(SQLException e){
-            System.out.println("Erro ao buscar Re pelo code: "+e.toString());
+            //System.out.println("Erro ao buscar Re pelo code: "+e.toString());
         }
         return 0;
     }
@@ -107,7 +107,7 @@ public class CrachaDAO {
             busca.first();
             return(busca.getString("pessoa_cpf"));
         }catch(SQLException e){
-            System.out.println("Erro ao buscar Re pelo code: "+e.toString());
+            //System.out.println("Erro ao buscar Re pelo code: "+e.toString());
         }
         return("WTF");
     }
@@ -125,7 +125,7 @@ public class CrachaDAO {
             busca.first();
             return(busca.getDate("validade_dia"));
         }catch(SQLException e){
-            System.out.println("Erro para pegar data: "+e.toString());
+            //System.out.println("Erro para pegar data: "+e.toString());
         }
         return null;
     }
@@ -143,7 +143,7 @@ public class CrachaDAO {
             busca.first();
             return(busca.getTime("validade_inicio"));
         }catch(SQLException e){
-            System.out.println("Erro para pegar a hora: "+e.toString());
+            //System.out.println("Erro para pegar a hora: "+e.toString());
         }
         return null;
     }
