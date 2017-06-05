@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import sistemaescolar.ConexaoBD;
+import sistemaescolar.Pessoa;
 import static sistemaescolar.Constantes_Tipos.*;
 import static sistemaescolar.Valida.validaCpf;
 
@@ -18,7 +20,7 @@ public class PessoaDAO {
         try{
             Connection con = ConexaoBD.getCon();
             Statement s = con.createStatement();
-            s.executeUpdate("UPDATE Pessoa SET pessoa_permissao = '1' WHERE pessoa_regescola = '"+re+"'");
+            s.executeUpdate("UPDATE Pessoa SET pessoa_permissao = '2' WHERE pessoa_regescola = '"+re+"'");
             con.close();
         }catch(SQLException e){
             System.out.println("Erro UpdatePermission: " +e.toString());
@@ -82,9 +84,7 @@ public class PessoaDAO {
             Statement s = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
             ResultSet busca = s.executeQuery("SELECT pessoa_credito FROM Pessoa WHERE pessoa_regescola='" +re+ "'");
             busca.first();
-            if(!busca.next()){
-                return (0);
-            }
+         
             return(Float.parseFloat(busca.getString("pessoa_credito")));
         }catch(SQLException e){
             System.out.println("Erro getCredits: " +e.toString());
@@ -232,5 +232,5 @@ public class PessoaDAO {
         
         s.executeUpdate("DELETE FROM pessoa WHERE pessoa_cpf != '333.333.333-33' AND pessoa_cpf != '111.111.111-11'");
     }
-    
-}
+
+ }

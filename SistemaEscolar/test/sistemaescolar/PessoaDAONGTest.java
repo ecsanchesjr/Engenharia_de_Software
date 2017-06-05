@@ -17,7 +17,10 @@ import static sistemaescolar.PessoaDAO.insertPessoaA;
 import static sistemaescolar.PessoaDAO.insertPessoaF;
 import static sistemaescolar.PessoaDAO.insertPessoaP;
 import static sistemaescolar.PessoaDAO.insertPessoaV;
-
+import static sistemaescolar.PessoaDAO.togglePermissionState;
+import static sistemaescolar.PessoaDAO.insertPessoaCreditsByRe;
+import static sistemaescolar.PessoaDAO.reducePessoaCreditsByRe;
+import static sistemaescolar.PessoaDAO.getPessoaCreditsByRe;
 /**
  *
  * @author ecsan
@@ -27,10 +30,17 @@ public class PessoaDAONGTest {
     PessoaDAO pessoadao = new PessoaDAO();
 
     @Test
-    public void getPessoaReTest() throws SQLException{
+    public void getPessoaReTest1() throws SQLException{
         Connection con = ConexaoBD.getCon();
         Statement s = con.createStatement();
         assertEquals(20,PessoaDAO.getPessoaRe("111.111.111-11"));
+    }   
+    
+    @Test
+    public void getPessoaReTest2() throws SQLException{
+        Connection con = ConexaoBD.getCon();
+        Statement s = con.createStatement();
+        assertEquals(0,PessoaDAO.getPessoaRe("341.152.132-11"));
     }   
     
     @Test
@@ -99,5 +109,48 @@ public class PessoaDAONGTest {
     public void existsPessoaByCpfTest4() throws SQLException{
         StringBuilder msg = new StringBuilder("");
         assertFalse(PessoaDAO.existsPessoaByCpf("111.111.111-11",msg));
+    }
+    
+    @Test
+    public void togglePermissionStateTest() throws SQLException{
+        togglePermissionState(25);
+        Connection con = ConexaoBD.getCon();
+        Statement s = con.createStatement();
+
+    }
+    
+    @Test
+    public void getPermissionStateTest() throws SQLException{
+        assertTrue(PessoaDAO.getPermissionState(20));
+    }
+    
+    @Test
+    public void getPermissionStateTest2() throws SQLException{
+        assertFalse(PessoaDAO.getPermissionState(25));
+    }
+     
+    @Test
+    public void insertPessoaCreditsByReTest() throws SQLException{
+        insertPessoaCreditsByRe(25,25,25);
+        Connection con = ConexaoBD.getCon();
+        Statement s = con.createStatement();
+
+    }
+    
+    @Test
+    public void reducePessoaCreditsByReTest() throws SQLException{
+        reducePessoaCreditsByRe(25,50,25);
+        Connection con = ConexaoBD.getCon();
+        Statement s = con.createStatement();
+    }
+        
+    @Test
+    public void getPessoaCreditsByReTest1() throws SQLException{      
+        assertEquals(Float.toString(PessoaDAO.getPessoaCreditsByRe(20)),"75.0");
+    }
+    
+    @Test
+    public void getPessoaCreditsByReTest2() throws SQLException{
+        assertEquals(Float.toString(PessoaDAO.getPessoaCreditsByRe(224)),"0.0");
     }
 }
